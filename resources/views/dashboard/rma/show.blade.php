@@ -16,7 +16,7 @@
                         <div class="media">
                             <div class="media-body">
                                 <h6 class="card-subtitle">Total Refund</h6>
-                                <span class="card-title h3">$0.00</span>
+                                <span class="card-title h3">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price'),2) }}</span>
                             </div>
                             <span class="icon icon-sm icon-soft-secondary icon-circle ml-3">
                                 <i class="tio-shop"></i>
@@ -144,7 +144,7 @@
             <!-- End Card -->
         </div>
         <div class="col-lg-8 mb-3 mb-lg-5">
-            <div class="card mb-7">
+            <div class="card">
                 <!-- Header -->
                 <div class="card-header">
                     <!-- Nav -->
@@ -173,37 +173,26 @@
                                     class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">Item</th>
-                                            <th scope="col">Change</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Sold</th>
-                                            <th scope="col">Sales</th>
+                                            <th scope="col">Serial</th>
+                                            <th scope="col">Model</th>
+                                            <th scope="col">Issue</th>
+                                            <th scope="col">Sale Price</th>
+                                            <th scope="col">Date</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
+                                        @forelse ($addInventory as $Inventory)
                                         <tr>
-                                            <td>
-                                                <!-- Media -->
-                                                <a class="media align-items-center"
-                                                    href="./ecommerce-product-description.html">
-                                                    <img class="avatar mr-3"
-                                                        src="{{ asset('assets/img/400x400/img4.jpg') }}"
-                                                        alt="Image Description">
-
-                                                    <div class="media-body">
-                                                        <h5 class="text-hover-primary mb-0">Photive wireless speakers</h5>
-                                                    </div>
-                                                </a>
-                                                <!-- End Media -->
-                                            </td>
-                                            <td><i class="tio-trending-down text-danger mr-1"></i> 72%</td>
-                                            <td>$65</td>
-                                            <td>7,545</td>
-                                            <td>
-                                                <h4 class="mb-0">$15,302.00</h4>
-                                            </td>
+                                            <td>{{$Inventory->serial}}</td>
+                                            <td>{{$Inventory->model}}</td>
+                                            <td>{{$Inventory->issue}}</td>
+                                            <td>{{$Inventory->sale_price}}</td>
+                                            <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($Inventory->created_at))->diffForHumans() }}</td>
                                         </tr>
+                                        @empty
+                                            <p class="text-center">No Record Found</p>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

@@ -6,6 +6,7 @@ use App\Models\Rma;
 use App\Models\Warehouse;
 use App\Models\Customer;
 use App\Models\Supplier;
+use App\Models\addInventory;
 use Illuminate\Http\Request;
 
 
@@ -69,8 +70,11 @@ class RmaController extends Controller
      */
     public function show(Rma $rma)
     {
+        // fetching Add Inventory Data
+        $addInventory = addInventory::where(['users_id' => session('user')[0]->id , 'rma_id' => $rma->id])->get();
         return view('dashboard.rma.show',[
             'rma' => $rma,
+            'addInventory' => $addInventory,
         ]);
     }
 
