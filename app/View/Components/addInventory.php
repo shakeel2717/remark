@@ -7,14 +7,16 @@ use Illuminate\View\Component;
 class addInventory extends Component
 {
     public $rma;
+    public $reasons;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($rma)
+    public function __construct($rma,$reasons)
     {
         $this->rma = $rma;
+        $this->reasons = $reasons;
     }
 
     /**

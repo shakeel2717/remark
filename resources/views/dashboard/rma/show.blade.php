@@ -238,7 +238,7 @@
                 </div>
                 <!-- End Tab Content -->
             </div>
-            <x-add-inventory :rma="$rma"/>
+            <x-add-inventory :rma="$rma" :reasons="$reasons"/>
             <x-add-refund :rma="$rma"/>
         </div>
     </div>

@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\Supplier;
 use App\Models\addInventory;
 use App\Models\rmaRefunds;
+use App\Models\Reason;
 use Illuminate\Http\Request;
 
 
@@ -74,10 +75,12 @@ class RmaController extends Controller
         // fetching Add Inventory Data
         $addInventory = addInventory::where(['users_id' => session('user')[0]->id , 'rma_id' => $rma->id])->get();
         $rmaRefunds = rmaRefunds::where(['users_id' => session('user')[0]->id , 'rma_id' => $rma->id])->get();
+        $reasons = Reason::where('users_id', session('user')[0]->id)->get();
         return view('dashboard.rma.show',[
             'rma' => $rma,
             'addInventory' => $addInventory,
             'rmaRefunds' => $rmaRefunds,
+            'reasons' => $reasons,
         ]);
     }
 

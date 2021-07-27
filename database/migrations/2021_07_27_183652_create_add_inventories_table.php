@@ -17,6 +17,7 @@ class CreateAddInventoriesTable extends Migration
             $table->id();
             $table->integer('users_id');
             $table->integer('rma_id');
+            $table->integer('reason_id');
             $table->string('serial');
             $table->string('model');
             $table->string('issue');

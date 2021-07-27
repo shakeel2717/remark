@@ -47,6 +47,19 @@
                             </div>
                         </div>
                         <div class="col-12">
+                            <div class="form-group">
+                                <label for="sale_price">Reasons</label>
+                                    <!-- Select2 -->
+                                    <select class="js-select2-custom custom-select" name="reason" size="1" style="opacity: 0;">
+                                        @foreach ($reasons as $reason)
+                                            <option value="{{ $reason->id }}">{{ $reason->value }}</option>
+                                        @endforeach
+                                    </select>
+                                    <!-- End Select2 -->
+                                <input type="hidden" name="rma_id" value="{{ $rma->id }}">
+                            </div>
+                        </div>
+                        <div class="col-12">
                           <div class="form-group">
                               <input type="submit" value="Submit" class="btn btn-primary btn-block">
                           </div>

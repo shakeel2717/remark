@@ -41,12 +41,14 @@ class AddInventoryController extends Controller
             'model' => 'required|string',
             'issue' => 'required|string',
             'sale_price' => 'required|string',
+            'reason' => 'required|string',
         ]);
 
         // inserting new Customer
         $task = new addInventory();
         $task->users_id = session('user')[0]->id;
         $task->rma_id = $validated['rma_id'];
+        $task->reason_id = $validated['reason'];
         $task->serial = $validated['serial'];
         $task->model = $validated['model'];
         $task->issue = $validated['issue'];
