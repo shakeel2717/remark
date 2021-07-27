@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class addRefund extends Component
 {
+    public $rma;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($rma)
     {
-        //
+        $this->rma = $rma;
     }
 
     /**

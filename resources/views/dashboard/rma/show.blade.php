@@ -32,7 +32,7 @@
                         <div class="media">
                             <div class="media-body">
                                 <h6 class="card-subtitle">Refunded</h6>
-                                <span class="card-title h3">$0.00</span>
+                                <span class="card-title h3">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($rmaRefunds->sum('amount'),2) }}</span>
                             </div>
 
                             <span class="icon icon-sm icon-soft-secondary icon-circle ml-3">
@@ -49,7 +49,7 @@
                         <div class="media">
                             <div class="media-body">
                                 <h6 class="card-subtitle">Refund Due</h6>
-                                <span class="card-title h3">$0.00</span>
+                                <span class="card-title h3">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price') - $rmaRefunds->sum('amount'),2) }}</span>
                             </div>
 
                             <span class="icon icon-sm icon-soft-secondary icon-circle ml-3">
@@ -81,7 +81,7 @@
     <div class="row">
         <div class="col-lg-4 mb-3 mb-lg-5">
             <!-- Card -->
-            <a class="card card-hover-shadow mb-4" id="addInventory" href="#">
+            <a class="card card-hover-shadow mb-4" id="addInventory" href="javascript:;">
                 <div class="card-body">
                     <div class="media align-items-center">
                         <img class="avatar avatar-xl mr-4" src="{{ asset('assets/svg/illustrations/create.svg') }}"
@@ -102,7 +102,7 @@
             <!-- End Card -->
 
             <!-- Card -->
-            <a class="card card-hover-shadow mb-4" href="#">
+            <a class="card card-hover-shadow mb-4" id="addRefund" href="javascript:;">
                 <div class="card-body">
                     <div class="media align-items-center">
                         <img class="avatar avatar-xl mr-4" src="{{ asset('assets/svg/illustrations/choice.svg') }}"
@@ -144,7 +144,7 @@
             <!-- End Card -->
         </div>
         <div class="col-lg-8 mb-3 mb-lg-5">
-            <div class="card">
+            <div class="card h-100">
                 <!-- Header -->
                 <div class="card-header">
                     <!-- Nav -->
@@ -166,7 +166,7 @@
                 <div class="tab-content" id="navTabContent1">
                     <div class="tab-pane fade p-4 active show" id="lnventoryData" role="tabpanel"
                         aria-labelledby="nav-resultTab1">
-                        <div class="card-body-height">
+                        <div class="">
                             <!-- Table -->
                             <div class="table-responsive">
                                 <table
@@ -202,12 +202,44 @@
                     </div>
 
                     <div class="tab-pane fade p-4" id="refundData" role="tabpanel" aria-labelledby="nav-htmlTab1">
-                        <p>HI</p>
+                        <div class="">
+                            <!-- Table -->
+                            <div class="table-responsive">
+                                <table
+                                    class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Payment Method</th>
+                                            <th scope="col">TX ID</th>
+                                            <th scope="col">Note</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Date</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @forelse ($rmaRefunds as $refund)
+                                        <tr>
+                                            <td>{{$refund->method}}</td>
+                                            <td>{{$refund->txid}}</td>
+                                            <td>{{$refund->note}}</td>
+                                            <td>{{$refund->amount}}</td>
+                                            <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($refund->created_at))->diffForHumans() }}</td>
+                                        </tr>
+                                        @empty
+                                            <p class="text-center">No Record Found</p>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- End Table -->
+                        </div>
                     </div>
                 </div>
                 <!-- End Tab Content -->
             </div>
             <x-add-inventory :rma="$rma"/>
+            <x-add-refund :rma="$rma"/>
         </div>
     </div>
 @endsection
@@ -217,6 +249,10 @@
             $("#addInventory").click(function() {
                 $('#customersGuideModal').modal('show')
             });
+            $("#addRefund").click(function() {
+                $('#addRefundModal').modal('show')
+            });
+            
         });
     </script>
 @endsection
