@@ -329,6 +329,28 @@
 
                         <!-- End Dashboards -->
 
+                        <li class="nav-item">
+                            <small class="nav-subtitle" title="Layouts">Sale Orders</small>
+                            <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('sale_orders.create') }}" title="Layouts"
+                                data-placement="left">
+                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Sale Order</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('sale_orders.index') }}" title="Layouts"
+                                data-placement="left">
+                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Sale Order</span>
+                            </a>
+                        </li>
+
 
                         <li class="nav-item">
                             <small class="nav-subtitle" title="Layouts">Supplier</small>
@@ -378,25 +400,25 @@
 
 
                         <li class="nav-item">
-                            <small class="nav-subtitle" title="Layouts">Customers Section</small>
+                            <small class="nav-subtitle" title="Layouts">RMA Section</small>
                             <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('customer.index') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('rma.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-home-vs-1-outlined nav-icon"></i>
                                 <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Customers</span>
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">RMAs</span>
                             </a>
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('customer.create') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('rma.create') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-home-vs-1-outlined nav-icon"></i>
                                 <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Customer</span>
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add RMA</span>
                             </a>
                         </li>
 
@@ -503,21 +525,6 @@
                     <p class="font-size-sm mb-0">&copy; {{ env('APP_NAME') }}. <span
                             class="d-none d-sm-inline-block">{{ date('Y') }}
                             {{ env('APP_SHORT_DESC') }}.</span></p>
-                </div>
-                <div class="col-auto">
-                    <div class="d-flex justify-content-end">
-                        <!-- List Dot -->
-                        <ul class="list-inline list-separator">
-                            <li class="list-inline-item">
-                                <a class="list-separator-link" href="#">FAQ</a>
-                            </li>
-
-                            <li class="list-inline-item">
-                                <a class="list-separator-link" href="#">License</a>
-                            </li>
-                        </ul>
-                        <!-- End List Dot -->
-                    </div>
                 </div>
             </div>
         </div>

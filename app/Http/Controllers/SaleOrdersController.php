@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rma;
-use App\Models\Warehouse;
+use App\Models\saleOrders;
 use App\Models\Customer;
-use App\Models\Supplier;
+use App\Models\Warehouse;
 use Illuminate\Http\Request;
 
-
-class RmaController extends Controller
+class SaleOrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +16,8 @@ class RmaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.rma.index',[
-            'customers' => Customer::where('users_id',session('user')[0]->id)->get(),
-            'rmas' => Rma::where('users_id',session('user')[0]->id)->paginate(10),
-            'warehouses' => Warehouse::where('users_id',session('user')[0]->id)->get(),
-            'suppliers' => Supplier::where('users_id',session('user')[0]->id)->get()
+        return view('dashboard.saleOrders.index',[
+            'saleOrders' => saleOrders::where('users_id',session('user')[0]->id)->paginate(10),
         ]);
     }
 
@@ -33,7 +28,10 @@ class RmaController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.saleOrders.create',[
+            'customers' => Customer::where('users_id',session('user')[0]->id)->get(),
+            'warehouses' => Warehouse::where('users_id',session('user')[0]->id)->get(),
+        ]);
     }
 
     /**
@@ -45,42 +43,39 @@ class RmaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'customer' => 'required|string',
-            'warehouse' => 'required|string',
-            'supplier' => 'required|string',
+            'warehouse' => 'required|integer',
+            'customer' => 'required|integer',
+            'txid' => 'required|string',
         ]);
-        // storing this request into database
-        $task = new Rma();
+
+        // inserting new Customer
+        $task = new saleOrders();
         $task->users_id = session('user')[0]->id;
         $task->customer_id = $validated['customer'];
         $task->warehouse_id = $validated['warehouse'];
-        $task->supplire_id = $validated['supplier'];
-        $task->status = "New";
+        $task->txid = $validated['txid'];
         $task->save();
-
-        return redirect()->back()->with('message', 'RMA was successfully created');
+        return redirect()->back()->with('message', 'Sale Order Added Successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rma  $rma
+     * @param  \App\Models\saleOrders  $saleOrders
      * @return \Illuminate\Http\Response
      */
-    public function show(Rma $rma)
+    public function show(saleOrders $saleOrders)
     {
-        return view('dashboard.rma.show',[
-            'rma' => $rma,
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rma  $rma
+     * @param  \App\Models\saleOrders  $saleOrders
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rma $rma)
+    public function edit(saleOrders $saleOrders)
     {
         //
     }
@@ -89,10 +84,10 @@ class RmaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rma  $rma
+     * @param  \App\Models\saleOrders  $saleOrders
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rma $rma)
+    public function update(Request $request, saleOrders $saleOrders)
     {
         //
     }
@@ -100,10 +95,10 @@ class RmaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rma  $rma
+     * @param  \App\Models\saleOrders  $saleOrders
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rma $rma)
+    public function destroy(saleOrders $saleOrders)
     {
         //
     }

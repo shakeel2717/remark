@@ -24,7 +24,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return 1;
     }
 
     /**
@@ -35,7 +35,16 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string',
+        ]);
+
+        // inserting new Customer
+        $task = new Customer();
+        $task->users_id = session('user')[0]->id;
+        $task->name = $validated['name'];
+        $task->save();
+        return redirect()->back()->with('message', 'Customer successfully created');
     }
 
     /**

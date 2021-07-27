@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRmasTable extends Migration
+class CreateSaleOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateRmasTable extends Migration
      */
     public function up()
     {
-        Schema::create('rmas', function (Blueprint $table) {
+        Schema::create('sale_orders', function (Blueprint $table) {
             $table->id();
             $table->integer('users_id');
             $table->integer('customer_id');
             $table->integer('warehouse_id');
-            $table->integer('supplire_id');
-            $table->string('status');
+            $table->string('txid');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateRmasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rmas');
+        Schema::dropIfExists('sale_orders');
     }
 }

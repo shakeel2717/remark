@@ -8,6 +8,11 @@ use App\Http\Controllers\SupportController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\RmaController;
+use App\Http\Controllers\saleOrdersController;
+
+
+
 use App\Http\Controllers\userAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -47,12 +52,14 @@ Route::get('/password-changed', [userAuth::class, 'passwordChanged'])->name('pas
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/index', [dashboard::class, 'index'])->name('dashboard');
+    Route::resource('sale_orders', saleOrdersController::class);
+    Route::resource('customer', customerController::class);
     Route::resource('support', SupportController::class);
 
     Route::resource('supplier', SupplierController::class);
 
     Route::resource('warehouse', WarehouseController::class);
-    Route::resource('customer', CustomerController::class);
+    Route::resource('rma', RmaController::class);
     
     Route::get('/profile', [profile::class, 'index'])->name('profile');
     Route::post('/profile', [profile::class, 'profileReq'])->name('profileReq');
