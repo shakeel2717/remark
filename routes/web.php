@@ -10,6 +10,8 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\RmaController;
 use App\Http\Controllers\saleOrdersController;
+use App\Http\Controllers\AddInventoryController;
+
 
 
 
@@ -54,12 +56,15 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/index', [dashboard::class, 'index'])->name('dashboard');
     Route::resource('sale_orders', saleOrdersController::class);
     Route::resource('customer', customerController::class);
+    
     Route::resource('support', SupportController::class);
 
     Route::resource('supplier', SupplierController::class);
 
     Route::resource('warehouse', WarehouseController::class);
     Route::resource('rma', RmaController::class);
+    Route::resource('add_inventory', AddInventoryController::class);
+    
     
     Route::get('/profile', [profile::class, 'index'])->name('profile');
     Route::post('/profile', [profile::class, 'profileReq'])->name('profileReq');

@@ -218,7 +218,7 @@
                 </div>
                 <!-- End Tab Content -->
             </div>
-            <x-add-inventory />
+            <x-add-inventory :rma="$rma"/>
         </div>
     </div>
 @endsection

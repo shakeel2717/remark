@@ -1,0 +1,102 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\addInventory;
+use Illuminate\Http\Request;
+
+class AddInventoryController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'rma_id' => 'required|integer',
+            'serial' => 'required|string',
+            'model' => 'required|string',
+            'issue' => 'required|string',
+            'sale_price' => 'required|string',
+        ]);
+
+        // inserting new Customer
+        $task = new addInventory();
+        $task->users_id = session('user')[0]->id;
+        $task->rma_id = $validated['rma_id'];
+        $task->serial = $validated['serial'];
+        $task->model = $validated['model'];
+        $task->issue = $validated['issue'];
+        $task->sale_price = $validated['sale_price'];
+        $task->save();
+        return redirect()->back()->with('message', 'Inventory Added into This RMA Successfully');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\addInventory  $addInventory
+     * @return \Illuminate\Http\Response
+     */
+    public function show(addInventory $addInventory)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\addInventory  $addInventory
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(addInventory $addInventory)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\addInventory  $addInventory
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, addInventory $addInventory)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\addInventory  $addInventory
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(addInventory $addInventory)
+    {
+        //
+    }
+}
