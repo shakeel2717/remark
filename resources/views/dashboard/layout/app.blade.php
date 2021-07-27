@@ -422,6 +422,21 @@
                             </a>
                         </li>
 
+
+                        <li class="nav-item">
+                            <small class="nav-subtitle" title="Layouts">Other Settings</small>
+                            <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('reasons.index') }}" title="Layouts"
+                                data-placement="left">
+                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Reasons Setting</span>
+                            </a>
+                        </li>
+
                         
                         <!-- Dashboards -->
                         <li class="nav-item">

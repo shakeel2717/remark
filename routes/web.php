@@ -12,6 +12,8 @@ use App\Http\Controllers\RmaController;
 use App\Http\Controllers\saleOrdersController;
 use App\Http\Controllers\AddInventoryController;
 use App\Http\Controllers\RmaRefundsController;
+use App\Http\Controllers\ReasonController;
+
 use App\Http\Controllers\userAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -62,6 +64,8 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::resource('rma', RmaController::class);
     Route::resource('add_inventory', AddInventoryController::class);
     Route::resource('rma_refund', RmaRefundsController::class);
+    Route::resource('reasons', ReasonController::class);
+    
     
     
     Route::get('/profile', [profile::class, 'index'])->name('profile');
