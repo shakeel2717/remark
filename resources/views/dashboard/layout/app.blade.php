@@ -321,7 +321,7 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('dashboard') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-dashboard nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboard</span>
                             </a>
@@ -337,7 +337,7 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('sale_orders.create') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-dollar nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Sale Order</span>
                             </a>
@@ -345,7 +345,7 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('sale_orders.index') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-document nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Sale Order</span>
                             </a>
@@ -360,7 +360,7 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('supplier.index') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-neighborhood nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Suppliers</span>
                             </a>
@@ -368,7 +368,7 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('supplier.create') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-add nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Supplier</span>
                             </a>
@@ -383,7 +383,7 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('warehouse.index') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-home nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Warehouses</span>
                             </a>
@@ -392,7 +392,7 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('warehouse.create') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-home nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Warehouses</span>
                             </a>
@@ -407,21 +407,11 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('rma.index') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-publish nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">RMAs</span>
                             </a>
                         </li>
-
-                        <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('rma.create') }}" title="Layouts"
-                                data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add RMA</span>
-                            </a>
-                        </li>
-
 
                         <li class="nav-item">
                             <small class="nav-subtitle" title="Layouts">Other Settings</small>
@@ -431,7 +421,7 @@
                         <li class="nav-item ">
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('reasons.index') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-home-vs-1-outlined nav-icon"></i>
+                                <i class="tio-settings nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Reasons Setting</span>
                             </a>
@@ -522,8 +512,8 @@
                     </div>
 
                     <div class="col-sm-auto">
-                        <a class="btn btn-primary" href="">
-                            <i class="tio-add mr-1"></i> Add Device
+                        <a class="btn btn-primary" href="{{ route('rma.index') }}">
+                            <i class="tio-add mr-1"></i> Add NEW RMA
                         </a>
                     </div>
                 </div>

@@ -12,8 +12,8 @@
     <div class="col-sm-7 col-md-5">
       <img class="img-fluid mb-5" src="{{ asset('assets/svg/illustrations/graphs.svg') }}" alt="Image Description" style="max-width: 21rem;">
 
-      <h1>No aircraft in my fleet!</h1>
-      <p>You are now minutes away for adding Devices for Rent than ever before. Enjoy!</p>
+      <h1>Nothing to Show in Dashboard!</h1>
+      <p>Becuase for Dashboard, there is no Plan yet.!</p>
     </div>
   </div>
 @endsection
