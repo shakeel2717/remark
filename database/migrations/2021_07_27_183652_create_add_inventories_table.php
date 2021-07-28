@@ -17,10 +17,11 @@ class CreateAddInventoriesTable extends Migration
             $table->id();
             $table->integer('users_id');
             $table->integer('rma_id');
-            $table->integer('reason_id');
+            $table->integer('reason_id')->nullable();
             $table->string('serial');
             $table->string('model');
             $table->string('issue');
+            $table->string('creditNote')->nullable();
             $table->string('sale_price');
             $table->timestamps();
         });

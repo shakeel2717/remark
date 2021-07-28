@@ -41,18 +41,24 @@ class AddInventoryController extends Controller
             'model' => 'required|string',
             'issue' => 'required|string',
             'sale_price' => 'required|string',
-            'reason' => 'required|string',
+            'reason' => 'nullable|string',
+            'creditNote' => 'file|mimes:pdf',
         ]);
+
+        $file = $validated['creditNote'];
+	    $filename=time().rand(0000,9999).'.'.$file->getClientOriginalExtension();
+        $validated['creditNote']->move('creditNote',$filename);
 
         // inserting new Customer
         $task = new addInventory();
         $task->users_id = session('user')[0]->id;
         $task->rma_id = $validated['rma_id'];
-        $task->reason_id = $validated['reason'];
+        $task->reason_id = $validated['reason'] ?? null;
         $task->serial = $validated['serial'];
         $task->model = $validated['model'];
         $task->issue = $validated['issue'];
         $task->sale_price = $validated['sale_price'];
+        $task->creditNote = $filename;
         $task->save();
         return redirect()->back()->with('message', 'Inventory Added into This RMA Successfully');
     }

@@ -21899,7 +21899,7 @@ label.btn {
     text-align: center;
     border: .1rem dashed #e7eaf3;
     cursor: pointer;
-    padding: 3rem 3rem;
+    padding: 1rem 1rem;
     border-radius: .3125rem;
     transition: .3s
 }

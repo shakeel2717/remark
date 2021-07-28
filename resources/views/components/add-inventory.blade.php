@@ -16,7 +16,7 @@
                 <div class="text-center mb-5">
                     <h4 class="h1">Add Inventory in RMA</h4>
                 </div>
-                <form action="{{ route('add_inventory.store') }}" method="POST">
+                <form action="{{ route('add_inventory.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-12">
@@ -48,22 +48,40 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
+                                <form>
+                                    <!-- File Attachment Input -->
+                                    <label class="custom-file-boxed" for="customFileInputBoxedEg">
+                                      <span id="customFileBoxedEg">Upload Credit Note PDF.</span>
+                                      <small class="d-block text-muted">Maximum file size 10MB</small>
+                                  
+                                      <input id="customFileInputBoxedEg" name="creditNote" type="file" class="js-file-attach custom-file-boxed-input"
+                                             data-hs-file-attach-options='{
+                                               "textTarget": "#customFileBoxedEg"
+                                             }'>
+                                    </label>
+                                    <!-- End File Attachment Input -->
+                                  </form>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
                                 <label for="sale_price">Reasons</label>
-                                    <!-- Select2 -->
-                                    <select class="js-select2-custom custom-select" name="reason" size="1" style="opacity: 0;">
-                                        @foreach ($reasons as $reason)
-                                            <option value="{{ $reason->id }}">{{ $reason->value }}</option>
-                                        @endforeach
-                                    </select>
-                                    <!-- End Select2 -->
+                                <!-- Select2 -->
+                                <select class="js-select2-custom custom-select" name="reason" size="1"
+                                    style="opacity: 0;">
+                                    @foreach ($reasons as $reason)
+                                        <option value="{{ $reason->id }}">{{ $reason->value }}</option>
+                                    @endforeach
+                                </select>
+                                <!-- End Select2 -->
                                 <input type="hidden" name="rma_id" value="{{ $rma->id }}">
                             </div>
                         </div>
                         <div class="col-12">
-                          <div class="form-group">
-                              <input type="submit" value="Submit" class="btn btn-primary btn-block">
-                          </div>
-                      </div>
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-primary btn-block">
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -71,7 +89,8 @@
 
             <!-- Footer -->
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Close This</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Close
+                    This</button>
             </div>
             <!-- End Footer -->
         </div>

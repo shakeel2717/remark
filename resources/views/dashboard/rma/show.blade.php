@@ -177,6 +177,7 @@
                                             <th scope="col">Model</th>
                                             <th scope="col">Issue</th>
                                             <th scope="col">Sale Price</th>
+                                            <th scope="col">Credit Note</th>
                                             <th scope="col">Date</th>
                                         </tr>
                                     </thead>
@@ -188,6 +189,7 @@
                                             <td>{{$Inventory->model}}</td>
                                             <td>{{$Inventory->issue}}</td>
                                             <td>{{$Inventory->sale_price}}</td>
+                                            <td><a href="{{ asset('creditNote/'.$Inventory->creditNote) }}">Download</a></td>
                                             <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($Inventory->created_at))->diffForHumans() }}</td>
                                         </tr>
                                         @empty
@@ -255,4 +257,14 @@
             
         });
     </script>
+    <script>
+        $(document).on('ready', function () {
+          // INITIALIZATION OF CUSTOM FILE
+          // =======================================================
+          $('.js-file-attach').each(function () {
+            var customFile = new HSFileAttach($(this)).init();
+          });
+        });
+      </script>
+    <script src="{{asset('assets/vendor/hs-file-attach/dist/hs-file-attach.min.js')}}"></script>
 @endsection
