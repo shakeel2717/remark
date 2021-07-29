@@ -48,17 +48,17 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                    <!-- File Attachment Input -->
-                                    <label class="custom-file-boxed" for="customFileInputBoxedEg">
-                                      <span id="customFileBoxedEg">Upload Credit Note PDF.</span>
-                                      <small class="d-block text-muted">Maximum file size 10MB</small>
-                                  
-                                      <input id="customFileInputBoxedEg" name="creditNote" type="file" class="js-file-attach custom-file-boxed-input"
-                                             data-hs-file-attach-options='{
+                                <!-- File Attachment Input -->
+                                <label class="custom-file-boxed" for="customFileInputBoxedEg">
+                                    <span id="customFileBoxedEg">Upload Credit Note PDF.</span>
+                                    <small class="d-block text-muted">Maximum file size 10MB</small>
+
+                                    <input id="customFileInputBoxedEg" name="creditNote" type="file"
+                                        class="js-file-attach custom-file-boxed-input" data-hs-file-attach-options='{
                                                "textTarget": "#customFileBoxedEg"
                                              }'>
-                                    </label>
-                                    <!-- End File Attachment Input -->
+                                </label>
+                                <!-- End File Attachment Input -->
                             </div>
                         </div>
                         <div class="col-12">

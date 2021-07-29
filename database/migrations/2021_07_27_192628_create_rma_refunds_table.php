@@ -20,6 +20,7 @@ class CreateRmaRefundsTable extends Migration
             $table->string('amount');
             $table->string('method');
             $table->string('txid');
+            $table->string('creditNote')->nullable();
             $table->text('note');
             $table->timestamps();
         });

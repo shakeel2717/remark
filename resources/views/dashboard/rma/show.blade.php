@@ -177,7 +177,7 @@
                                             <th scope="col">Model</th>
                                             <th scope="col">Issue</th>
                                             <th scope="col">Sale Price</th>
-                                            <th scope="col">Credit Note</th>
+                                            <th scope="col">Attachment</th>
                                             <th scope="col">Date</th>
                                         </tr>
                                     </thead>
@@ -215,6 +215,7 @@
                                             <th scope="col">TX ID</th>
                                             <th scope="col">Note</th>
                                             <th scope="col">Amount</th>
+                                            <th scope="col">CREDIT NOTE</th>
                                             <th scope="col">Date</th>
                                         </tr>
                                     </thead>
@@ -226,6 +227,7 @@
                                             <td>{{$refund->txid}}</td>
                                             <td>{{$refund->note}}</td>
                                             <td>{{$refund->amount}}</td>
+                                            <td>{{$refund->creditNote}}</td>
                                             <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($refund->created_at))->diffForHumans() }}</td>
                                         </tr>
                                         @empty

@@ -43,7 +43,12 @@ class RmaRefundsController extends Controller
             'txid' => 'required|string',
             'note' => 'required|string',
             'amount' => 'required|string',
+            'creditNote' => 'file|mimes:pdf',
         ]);
+
+        $file = $validated['creditNote'];
+        $filename = time() . rand(0000, 9999) . '.' . $file->getClientOriginalExtension();
+        $validated['creditNote']->move('creditNote', $filename);
 
         // inserting new Customer
         $task = new rmaRefunds();
@@ -53,6 +58,7 @@ class RmaRefundsController extends Controller
         $task->txid = $validated['txid'];
         $task->note = $validated['note'];
         $task->method = $validated['method'];
+        $task->creditNote = $filename;
         $task->save();
         return redirect()->back()->with('message', 'Refund Amount Added Successfully');
     }
@@ -60,7 +66,7 @@ class RmaRefundsController extends Controller
     public function import_rma_refund(Request $request)
     {
         $validated = $request->validate([
-        'import_file' => 'required|max:10000|mimes:xlsx,xls',
+            'import_file' => 'required|max:10000|mimes:xlsx,xls',
         ]);
         $path = $request->file('import_file');
         Excel::import(new InventoryImport(), $path);
@@ -68,7 +74,7 @@ class RmaRefundsController extends Controller
     }
 
 
-    
+
 
     /**
      * Display the specified resource.

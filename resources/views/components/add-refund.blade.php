@@ -16,7 +16,7 @@
                 <div class="text-center mb-5">
                     <h4 class="h1">Add Refund in RMA</h4>
                 </div>
-                <form action="{{ route('rma_refund.store') }}" method="POST">
+                <form action="{{ route('rma_refund.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-12">
@@ -36,6 +36,20 @@
                             <div class="form-group">
                                 <label for="txid">Transaction ID</label>
                                 <input type="text" name="txid" id="txid" class="form-control" placeholder="Transaction ID">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                               <!-- File Attachment Input -->
+                               <label class="custom-file-boxed" for="creditNote">
+                                <span id="customFileBoxedEg">Upload Credit Note PDF.</span>
+                                <small class="d-block text-muted">Maximum file size 10MB</small>
+                                <input id="creditNote" name="creditNote" type="file"
+                                    class="js-file-attach custom-file-boxed-input" data-hs-file-attach-options='{
+                                           "textTarget": "#customFileBoxedEg"
+                                         }'>
+                            </label>
+                            <!-- End File Attachment Input -->
                             </div>
                         </div>
                         <div class="col-12">
