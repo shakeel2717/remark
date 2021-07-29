@@ -42,7 +42,7 @@ class AddInventoryController extends Controller
             'issue' => 'required|string',
             'sale_price' => 'required|string',
             'reason' => 'nullable|string',
-            'creditNote' => 'file|mimes:pdf',
+            'creditNote' => 'file|mimes:jpg,jpeg,png',
         ]);
 
         $file = $validated['creditNote'];

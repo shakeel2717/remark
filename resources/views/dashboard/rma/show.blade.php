@@ -227,7 +227,7 @@
                                             <td>{{$refund->txid}}</td>
                                             <td>{{$refund->note}}</td>
                                             <td>{{$refund->amount}}</td>
-                                            <td>{{$refund->creditNote}}</td>
+                                            <td><a href="{{ asset('creditNote/'.$refund->creditNote) }}">Download</a></td>
                                             <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($refund->created_at))->diffForHumans() }}</td>
                                         </tr>
                                         @empty

@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <!-- File Attachment Input -->
                                 <label class="custom-file-boxed" for="customFileInputBoxedEg">
-                                    <span id="customFileBoxedEg">Upload Credit Note PDF.</span>
+                                    <span id="customFileBoxedEg">Upload Images JPG, PNG.</span>
                                     <small class="d-block text-muted">Maximum file size 10MB</small>
 
                                     <input id="customFileInputBoxedEg" name="creditNote" type="file"
