@@ -17,6 +17,7 @@ use App\Http\Controllers\ReasonController;
 use App\Http\Controllers\userAuth;
 use Illuminate\Support\Facades\Route;
 
+Route::redirect('/', 'authentication/login');
 Route::redirect('/login', 'authentication/login');
 Route::redirect('/register', 'authentication/register');
 Route::redirect('/reset', 'authentication/reset');

@@ -123,15 +123,15 @@
             <!-- End Card -->
 
             <!-- Card -->
-            <a class="card card-hover-shadow" href="#">
+            <a class="card card-hover-shadow" id="importRma" href="#">
                 <div class="card-body">
                     <div class="media align-items-center">
-                        <img class="avatar avatar-xl mr-4" src="{{ asset('assets/svg/illustrations/presenting.svg') }}"
+                        <img class="avatar avatar-xl mr-4" src="{{ asset('assets/svg/illustrations/sending.svg') }}"
                             alt="Image Description">
 
                         <div class="media-body">
-                            <h3 class="text-hover-primary mb-1">Delete</h3>
-                            <span class="text-body">Delete This RMA</span>
+                            <h3 class="text-hover-primary mb-1">Import RMA</h3>
+                            <span class="text-body">Import RMA from Excel File</span>
                         </div>
 
                         <div class="ml-2 text-right">
@@ -242,6 +242,7 @@
             </div>
             <x-add-inventory :rma="$rma" :reasons="$reasons"/>
             <x-add-refund :rma="$rma"/>
+            <x-import_rma_modal />
         </div>
     </div>
 @endsection
@@ -253,6 +254,9 @@
             });
             $("#addRefund").click(function() {
                 $('#addRefundModal').modal('show')
+            });
+            $("#importRma").click(function() {
+                $('#importRmaModal').modal('show')
             });
             
         });
