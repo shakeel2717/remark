@@ -14,7 +14,7 @@
             <!-- Body -->
             <div class="modal-body p-sm-5">
                 <div class="text-center mb-5">
-                    <h4 class="h1">Add Inventory in RMA</h4>
+                    <h4 class="h1">Add Refund in RMA</h4>
                 </div>
                 <form action="{{ route('rma_refund.store') }}" method="POST">
                     @csrf
