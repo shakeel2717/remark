@@ -242,7 +242,7 @@
             </div>
             <x-add-inventory :rma="$rma" :reasons="$reasons"/>
             <x-add-refund :rma="$rma"/>
-            <x-import_rma_modal />
+            <x-import-rma-modal />
         </div>
     </div>
 @endsection
