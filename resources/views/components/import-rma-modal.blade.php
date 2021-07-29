@@ -14,20 +14,19 @@
             <!-- Body -->
             <div class="modal-body p-sm-5">
                 <div class="text-center mb-5">
-                    <h4 class="h1">Add Inventory in RMA</h4>
+                    <h4 class="h1">Import Excel Inventory in RMA</h4>
                 </div>
-                <form action="{{ route('rma_refund.store') }}" method="POST">
+                <form action="{{ route('import_rma_refund.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
                                 <form>
                                     <!-- File Attachment Input -->
-                                    <label class="custom-file-boxed" for="customFileInputBoxedEg">
-                                      <span id="customFileBoxedEg">Upload Credit Note PDF.</span>
+                                    <label class="custom-file-boxed" for="import_file">
+                                      <span id="customFileBoxedEg">Upload Excel File to Import.</span>
                                       <small class="d-block text-muted">Maximum file size 10MB</small>
-                                  
-                                      <input id="customFileInputBoxedEg" name="creditNote" type="file" class="js-file-attach custom-file-boxed-input"
+                                      <input id="import_file" name="import_file" type="file" class="js-file-attach custom-file-boxed-input"
                                              data-hs-file-attach-options='{
                                                "textTarget": "#customFileBoxedEg"
                                              }'>
@@ -37,16 +36,8 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="form-group">
-                                <label for="note">Note</label>
-                                <input type="text" name="note" id="note" class="form-control"
-                                    placeholder="Note">
-                                {{-- <input type="hidden" name="rma_id" value="{{ $rma->id }}"> --}}
-                            </div>
-                        </div>
-                        <div class="col-12">
                           <div class="form-group">
-                              <input type="submit" value="Submit" class="btn btn-primary btn-block">
+                              <input type="submit" value="Start Importing" class="btn btn-primary btn-block">
                           </div>
                       </div>
                     </div>
@@ -56,7 +47,7 @@
 
             <!-- Footer -->
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Close This</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Start Importing</button>
             </div>
             <!-- End Footer -->
         </div>

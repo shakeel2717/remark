@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\rmaRefunds;
+use App\Imports\InventoryImport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RmaRefundsController extends Controller
 {
@@ -54,6 +56,19 @@ class RmaRefundsController extends Controller
         $task->save();
         return redirect()->back()->with('message', 'Refund Amount Added Successfully');
     }
+
+    public function import_rma_refund(Request $request)
+    {
+        $validated = $request->validate([
+        'import_file' => 'required|max:10000|mimes:xlsx,xls',
+        ]);
+        $path = $request->file('import_file');
+        Excel::import(new InventoryImport(), $path);
+        return redirect()->back()->with('message', 'Import Successfully Complete');
+    }
+
+
+    
 
     /**
      * Display the specified resource.

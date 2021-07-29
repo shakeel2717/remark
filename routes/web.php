@@ -65,8 +65,9 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::resource('rma', RmaController::class);
     Route::resource('add_inventory', AddInventoryController::class);
     Route::resource('rma_refund', RmaRefundsController::class);
-    Route::resource('reasons', ReasonController::class);
+    Route::post('/import_rma_refund', [RmaRefundsController::class, 'import_rma_refund'])->name('import_rma_refund.store');
     
+    Route::resource('reasons', ReasonController::class);
     
     
     Route::get('/profile', [profile::class, 'index'])->name('profile');

@@ -48,7 +48,6 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <form>
                                     <!-- File Attachment Input -->
                                     <label class="custom-file-boxed" for="customFileInputBoxedEg">
                                       <span id="customFileBoxedEg">Upload Credit Note PDF.</span>
@@ -60,7 +59,6 @@
                                              }'>
                                     </label>
                                     <!-- End File Attachment Input -->
-                                  </form>
                             </div>
                         </div>
                         <div class="col-12">
