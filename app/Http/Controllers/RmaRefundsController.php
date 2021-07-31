@@ -56,10 +56,12 @@ class RmaRefundsController extends Controller
             $filename = Null;
         }
 
+        $getCustomerID = Rma::find($validated['rma_id']);
         // inserting new Customer
         $task = new rmaRefunds();
         $task->users_id = session('user')[0]->id;
         $task->rma_id = $validated['rma_id'];
+        $task->customers_id = $getCustomerID->customer_id;
         $task->amount = $validated['amount'];
         $task->txid = $validated['txid'];
         $task->note = $validated['note'];
@@ -71,7 +73,6 @@ class RmaRefundsController extends Controller
         $rmadate = $task->created_at;
 
         // Getting Customer ID
-        $getCustomerID = Rma::find($validated['rma_id']);
 
         // inserting this RMA Creation History
         $task = new rmahistory();

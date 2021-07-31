@@ -54,10 +54,12 @@ class AddInventoryController extends Controller
             $filename = Null;
         }
 
+        $getCustomerID = Rma::find($validated['rma_id']);
         // inserting new Customer
         $task = new addInventory();
         $task->users_id = session('user')[0]->id;
         $task->rma_id = $validated['rma_id'];
+        $task->customers_id = $getCustomerID->customer_id;
         $task->reason_id = $validated['reason'] ?? null;
         $task->serial = $validated['serial'];
         $task->model = $validated['model'];
@@ -70,7 +72,6 @@ class AddInventoryController extends Controller
         $rmadate = $task->created_at;
 
         // Getting Customer ID
-        $getCustomerID = Rma::find($validated['rma_id']);
 
         // inserting this RMA Creation History
         $task = new rmahistory();

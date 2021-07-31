@@ -16,6 +16,7 @@ class CreateRmaRefundsTable extends Migration
         Schema::create('rma_refunds', function (Blueprint $table) {
             $table->id();
             $table->integer('users_id');
+            $table->integer('customers_id');
             $table->integer('rma_id');
             $table->string('amount');
             $table->string('method');

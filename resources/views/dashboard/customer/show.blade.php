@@ -8,6 +8,65 @@ Dashboard
         <x-email-alert />
     </div>
 </div>
+<div class="row gx-2 gx-lg-3">
+    <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2">Total RMAs</h6>
+
+                <div class="row align-items-center gx-2">
+                    <div class="col">
+                        <span class="js-counter display-4 text-dark" data-value="24">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price'),2) }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2">Total Refund</h6>
+
+                <div class="row align-items-center gx-2">
+                    <div class="col">
+                        <span class="js-counter display-4 text-dark" data-value="24">24</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2">Total Refunded</h6>
+
+                <div class="row align-items-center gx-2">
+                    <div class="col">
+                        <span class="js-counter display-4 text-dark" data-value="24">24</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2">Refund Due</h6>
+
+                <div class="row align-items-center gx-2">
+                    <div class="col">
+                        <span class="js-counter display-4 text-dark" data-value="24">24</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 <div class="row">
     <div class="col-lg-4">
         <!-- Card -->
@@ -94,6 +153,15 @@ Dashboard
                 @endforeach
             </div>
             <!-- End Body -->
+            <!-- Footer -->
+            <div class="card-footer">
+                <!-- Pagination -->
+                <div class="d-flex justify-content-center justify-content-sm-end">
+                    {{ $rmaHistories->links() }}
+                </div>
+                <!-- End Pagination -->
+            </div>
+            <!-- End Footer -->
         </div>
         <!-- End Card -->
     </div>

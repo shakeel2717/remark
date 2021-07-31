@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\addInventory;
 use App\Models\Customer;
 use App\Models\rmahistory;
+use App\Models\rmaRefunds;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -15,8 +17,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('dashboard.customer.index',[
-            'allCustomers' => Customer::where('users_id',session('user')[0]->id)->paginate(10),
+        return view('dashboard.customer.index', [
+            'allCustomers' => Customer::where('users_id', session('user')[0]->id)->paginate(10),
         ]);
     }
 
@@ -64,10 +66,14 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        $rmaHistory = rmahistory::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->get();
-        return view('dashboard.customer.show',[
+        $rmaHistory = rmahistory::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->paginate(10);
+        $rmaRefunds = rmaRefunds::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->get();
+        $addInventory = addInventory::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->get();
+        return view('dashboard.customer.show', [
             'customer' => $customer,
             'rmaHistories' => $rmaHistory,
+            'addInventory' => $addInventory,
+            'rmaRefunds' => $rmaRefunds,
         ]);
     }
 
