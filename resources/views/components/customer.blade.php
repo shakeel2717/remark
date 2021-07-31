@@ -5,8 +5,7 @@
             <h4 class="card-header-title">Add New Customer</h4>
 
             <!-- Toggle Button -->
-            <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark ml-2" href="javascript:;"
-                data-hs-unfold-options='{
+            <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark ml-2" href="javascript:;" data-hs-unfold-options='{
                     "target": "#customerSidebar",
                     "type": "css-animation",
                     "animationIn": "fadeInRight",
@@ -28,11 +27,26 @@
                 @csrf
                 <div class="row form-group">
                     <label for="name" class="col-12 col-form-label input-label">Full Name</label>
-
                     <div class="col-12">
-                        <!-- Select2 -->
                         <input type="text" name="name" id="name" class="form-control">
-                        <!-- End Select2 -->
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="name" class="col-12 col-form-label input-label">Email (Optional)</label>
+                    <div class="col-12">
+                        <input type="email" name="email" id="email" class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="name" class="col-12 col-form-label input-label">Phone (Optional)</label>
+                    <div class="col-12">
+                        <input type="text" name="phone" id="phone" class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="name" class="col-12 col-form-label input-label">Address (Optional)</label>
+                    <div class="col-12">
+                        <input type="text" name="address" id="address" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">

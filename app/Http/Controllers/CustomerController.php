@@ -14,7 +14,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.customer.index',[
+            'allCustomers' => Customer::where('users_id',session('user')[0]->id)->paginate(10),
+        ]);
     }
 
     /**
@@ -37,12 +39,18 @@ class CustomerController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string',
+            'email' => 'nullable|email|string',
+            'phone' => 'nullable|string',
+            'address' => 'nullable|string',
         ]);
 
         // inserting new Customer
         $task = new Customer();
         $task->users_id = session('user')[0]->id;
         $task->name = $validated['name'];
+        $task->email = $validated['email'];
+        $task->phone = $validated['phone'];
+        $task->address = $validated['address'];
         $task->save();
         return redirect()->back()->with('message', 'Customer successfully created');
     }

@@ -353,6 +353,21 @@
 
 
                         <li class="nav-item">
+                            <small class="nav-subtitle" title="Layouts">Customers</small>
+                            <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('customer.index') }}" title="Layouts"
+                                data-placement="left">
+                                <i class="tio-user nav-icon"></i>
+                                <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Customers</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
                             <small class="nav-subtitle" title="Layouts">Supplier</small>
                             <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                         </li>

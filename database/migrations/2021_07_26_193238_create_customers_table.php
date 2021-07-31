@@ -18,6 +18,9 @@ class CreateCustomersTable extends Migration
             $table->integer('users_id');
             $table->integer('rmas_id')->nullable();
             $table->string('name');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }
