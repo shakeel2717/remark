@@ -67,7 +67,7 @@ class CustomerController extends Controller
         $task->address = $validated['address'];
         $task->type = $validated['type'];
         $task->save();
-        return redirect()->back()->with('message', 'Customer successfully created');
+        return redirect()->back()->with('message', 'Task successfully created');
     }
 
     /**

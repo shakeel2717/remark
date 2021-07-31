@@ -2,11 +2,10 @@
 <div id="supplierSidebar" class="hs-unfold-content sidebar sidebar-bordered sidebar-box-shadow">
     <div class="card card-hover-shadow card-lg sidebar-card sidebar-footer-fixed">
         <div class="card-header">
-            <h4 class="card-header-title">Contact Us</h4>
+            <h4 class="card-header-title">Add New Supplier</h4>
 
             <!-- Toggle Button -->
-            <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark ml-2" href="javascript:;"
-                data-hs-unfold-options='{
+            <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark ml-2" href="javascript:;" data-hs-unfold-options='{
                     "target": "#supplierSidebar",
                     "type": "css-animation",
                     "animationIn": "fadeInRight",
@@ -21,40 +20,38 @@
 
         <!-- Body -->
         <div class="card-body sidebar-body sidebar-scrollbar">
-            <h3>Add new supplier.</h3>
+            <h3>Add new Supplier in System.</h3>
             <hr>
             <!-- Form Group -->
-            <form action="{{ route('supplier.index') }}" method="POST">
+            <form action="{{ route('customer.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
-                    <label for="emailLabel" class="col-12 col-form-label input-label">First Name</label>
-
+                    <label for="name" class="col-12 col-form-label input-label">Full Name</label>
                     <div class="col-12">
-                        <!-- Select2 -->
-                        <input type="text" name="fname" id="fname" class="form-control">
-                        <!-- End Select2 -->
+                        <input type="text" name="name" id="name" class="form-control">
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label for="emailLabel" class="col-12 col-form-label input-label">Last Name</label>
-
+                    <label for="name" class="col-12 col-form-label input-label">Email (Optional)</label>
                     <div class="col-12">
-                        <!-- Select2 -->
-                        <input type="text" name="lname" id="lname" class="form-control">
-                        <!-- End Select2 -->
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <label for="emailLabel" class="col-12 col-form-label input-label">Email</label>
-
-                    <div class="col-12">
-                        <!-- Select2 -->
                         <input type="email" name="email" id="email" class="form-control">
-                        <!-- End Select2 -->
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="name" class="col-12 col-form-label input-label">Phone (Optional)</label>
+                    <div class="col-12">
+                        <input type="text" name="phone" id="phone" class="form-control">
+                    </div>
+                </div>
+                <input type="hidden" name="type" value="1">
+                <div class="row form-group">
+                    <label for="name" class="col-12 col-form-label input-label">Address (Optional)</label>
+                    <div class="col-12">
+                        <input type="text" name="address" id="address" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Add This Supplier</button>
+                    <button type="submit" class="btn btn-primary btn-block">Add New Supplier</button>
                 </div>
             </form>
             <hr>

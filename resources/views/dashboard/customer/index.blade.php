@@ -17,7 +17,7 @@ Dashboard
                 <div class="row justify-content-between align-items-center flex-grow-1">
                     <div class="col-12 col-md">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-header-title">All Supplier List</h5>
+                            <h5 class="card-header-title">All Record List</h5>
                             <a class="btn btn-primary js-hs-unfold-invoker" href="javascript:;" data-hs-unfold-options='{
                                     "target": "#customerSidebar",
                                     "type": "css-animation",
@@ -26,7 +26,7 @@ Dashboard
                                     "hasOverlay": true,
                                     "smartPositionOff": true
                                 }'>
-                                <i class="tio-user-add mr-1"></i> Add Customer
+                                <i class="tio-user-add mr-1"></i> Add new
                             </a>
                             <x-customer />
                         </div>

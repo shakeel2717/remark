@@ -2,7 +2,7 @@
 <div id="customerSidebar" class="hs-unfold-content sidebar sidebar-bordered sidebar-box-shadow">
     <div class="card card-hover-shadow card-lg sidebar-card sidebar-footer-fixed">
         <div class="card-header">
-            <h4 class="card-header-title">Add New Customer</h4>
+            <h4 class="card-header-title">Add New Customer / Supplier</h4>
 
             <!-- Toggle Button -->
             <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark ml-2" href="javascript:;" data-hs-unfold-options='{
@@ -20,7 +20,7 @@
 
         <!-- Body -->
         <div class="card-body sidebar-body sidebar-scrollbar">
-            <h3>Add new Customer in System.</h3>
+            <h3>Add new Customer / Supplier in System.</h3>
             <hr>
             <!-- Form Group -->
             <form action="{{ route('customer.store') }}" method="POST">
@@ -43,15 +43,25 @@
                         <input type="text" name="phone" id="phone" class="form-control">
                     </div>
                 </div>
-                <input type="hidden" name="type" value="0">
                 <div class="row form-group">
                     <label for="name" class="col-12 col-form-label input-label">Address (Optional)</label>
                     <div class="col-12">
                         <input type="text" name="address" id="address" class="form-control">
                     </div>
                 </div>
+                <div class="row form-group">
+                    <label for="supplier" class="col-12 col-form-label input-label">Select Customer / Supplier </label>
+                    <div class="col-12">
+                        <!-- Select2 -->
+                        <select class="js-select2-custom custom-select" name="type" size="1" style="opacity: 0;">
+                                <option value="0">Customer</option>
+                                <option value="1">Supplier</option>
+                        </select>
+                        <!-- End Select2 -->
+                    </div>
+                </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Add New Customer</button>
+                    <button type="submit" class="btn btn-primary btn-block">Add New Customer / Supplier</button>
                 </div>
             </form>
             <hr>
