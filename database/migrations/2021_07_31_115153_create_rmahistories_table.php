@@ -17,6 +17,7 @@ class CreateRmahistoriesTable extends Migration
             $table->id();
             $table->integer('users_id');
             $table->integer('rma_id');
+            $table->integer('customers_id');
             $table->string('title');
             $table->text('value');
             $table->timestamps();

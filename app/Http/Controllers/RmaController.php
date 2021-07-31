@@ -67,9 +67,10 @@ class RmaController extends Controller
         // inserting this RMA Creation History
         $task = new rmahistory();
         $task->users_id = session('user')[0]->id;
+        $task->customers_id = $validated['customer'];
         $task->rma_id = $rMAID;
         $task->title = "RMA Created Successfully";
-        $task->value = "RMA Created by ".session('user')[0]->fname." ".session('user')[0]->lname." on ".$rmadate."";
+        $task->value = "RMA# $rMAID Created by ".session('user')[0]->fname." ".session('user')[0]->lname." on ".$rmadate."";
         $task->save();
         return redirect()->back()->with('message', 'RMA was successfully created');
     }

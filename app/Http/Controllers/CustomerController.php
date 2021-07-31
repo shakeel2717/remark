@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\rmahistory;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -63,7 +64,11 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        $rmaHistory = rmahistory::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->get();
+        return view('dashboard.customer.show',[
+            'customer' => $customer,
+            'rmaHistories' => $rmaHistory,
+        ]);
     }
 
     /**

@@ -66,7 +66,12 @@
                                         <span class="d-block h5 mb-0">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($rma->created_at))->diffForHumans() }}</span>
                                     </td>
                                     <td>
-                                        <span class="d-block h5 mb-0">{{ $rma->customer }}</span>
+                                        <span class="d-block h5 mb-0">@php
+                                             $query = DB::table('customers')->find($rma->customer_id);
+                                             echo $query->name; 
+                                             @endphp
+                                             <a href="{{ route('customer.show',['customer' => 1]) }}">Click</a>
+                                            </span>
                                     </td>
                                     <td>
                                         <span class="d-block h5 mb-0">0</span>
