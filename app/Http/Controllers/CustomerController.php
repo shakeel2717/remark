@@ -19,10 +19,19 @@ class CustomerController extends Controller
     public function index()
     {
         return view('dashboard.customer.index', [
-            'allCustomers' => Customer::where('users_id', session('user')[0]->id)->paginate(10),
+            'allCustomers' => Customer::where('users_id', session('user')[0]->id)->where('type', 0)->paginate(10),
         ]);
     }
 
+    public function supplier()
+    {
+        return view('dashboard.customer.index', [
+            'allCustomers' => Customer::where('users_id', session('user')[0]->id)->where('type', 1)->paginate(10),
+        ]);
+    }
+
+
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -46,6 +55,7 @@ class CustomerController extends Controller
             'email' => 'nullable|email|string',
             'phone' => 'nullable|string',
             'address' => 'nullable|string',
+            'type' => 'required|boolean',
         ]);
 
         // inserting new Customer
@@ -55,6 +65,7 @@ class CustomerController extends Controller
         $task->email = $validated['email'];
         $task->phone = $validated['phone'];
         $task->address = $validated['address'];
+        $task->type = $validated['type'];
         $task->save();
         return redirect()->back()->with('message', 'Customer successfully created');
     }

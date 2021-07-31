@@ -47,16 +47,27 @@ class createUser extends Command
             'name' => 'Abdul Hameed',
             'email' => 'abdul@hameed.com',
             'phone' => '+92-3004545456',
+            'type' => 0,
             'address' => 'Qadri Darbar, Street #6, Gojra',
         ]);
 
-        // Creating Supplire
-        Supplier::create([
+        // Creating Customer
+        Customer::create([
             'users_id' => 1,
-            'fname' => 'Ghulam',
-            'lname' => 'Hussian',
-            'email' => 'ghulam@hussain.com',
+            'name' => 'Basharat Ali',
+            'email' => 'basharat@ali.com',
+            'phone' => '+92-3004545456',
+            'type' => 1,
+            'address' => 'Qadri Darbar, Street #6, Gojra',
         ]);
+
+        // // Creating Supplire
+        // Supplier::create([
+        //     'users_id' => 1,
+        //     'fname' => 'Ghulam',
+        //     'lname' => 'Hussian',
+        //     'email' => 'ghulam@hussain.com',
+        // ]);
 
         // Creating Warehouse
         Warehouse::create([

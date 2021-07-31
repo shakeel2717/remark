@@ -83,8 +83,20 @@
                         <!-- Select2 -->
                         <select class="js-select2-custom custom-select" name="supplier" size="1" style="opacity: 0;">
                             @foreach ($suppliers as $supplier)
-                                <option value="{{ $supplier->id }}">{{ $supplier->fname }} {{ $supplier->lname }}</option>
+                                <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                             @endforeach
+                        </select>
+                        <!-- End Select2 -->
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label for="supplier" class="col-12 col-form-label input-label">Customer / Vendor </label>
+                    <div class="col-12">
+                        <!-- Select2 -->
+                        <select class="js-select2-custom custom-select" name="type" size="1" style="opacity: 0;">
+                                <option value="0">RMA Customer</option>
+                                <option value="1">RMA Supplier</option>
                         </select>
                         <!-- End Select2 -->
                     </div>

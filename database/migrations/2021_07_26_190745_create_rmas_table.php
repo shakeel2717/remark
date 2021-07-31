@@ -20,6 +20,7 @@ class CreateRmasTable extends Migration
             $table->integer('warehouse_id');
             $table->integer('supplire_id');
             $table->string('status');
+            $table->boolean('type');
             $table->timestamps();
         });
     }

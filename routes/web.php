@@ -56,13 +56,15 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/index', [dashboard::class, 'index'])->name('dashboard');
     Route::resource('sale_orders', saleOrdersController::class);
     Route::resource('customer', customerController::class);
-    
+    Route::get('/supplier', [customerController::class, 'supplier'])->name('supplier.index');
     Route::resource('support', SupportController::class);
 
-    Route::resource('supplier', SupplierController::class);
+    // Route::resource('supplier', SupplierController::class);
 
     Route::resource('warehouse', WarehouseController::class);
     Route::resource('rma', RmaController::class);
+    Route::get('/rma-customer', [RmaController::class, 'rmaCustomer'])->name('rma.customer');
+    Route::get('/rma-supplier', [RmaController::class, 'rmaSupplier'])->name('rma.supplier');
     Route::resource('add_inventory', AddInventoryController::class);
     Route::resource('rma_refund', RmaRefundsController::class);
     Route::post('/import_rma_refund', [RmaRefundsController::class, 'import_rma_refund'])->name('import_rma_refund.store');

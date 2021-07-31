@@ -366,6 +366,15 @@
                             </a>
                         </li>
 
+                        <li class="nav-item ">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('rma.customer') }}" title="Layouts"
+                                data-placement="left">
+                                <i class="tio-publish nav-icon"></i>
+                                <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Incoming RMA</span>
+                            </a>
+                        </li>
+
 
                         <li class="nav-item">
                             <small class="nav-subtitle" title="Layouts">Supplier</small>
@@ -381,11 +390,11 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('supplier.create') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('rma.supplier') }}" title="Layouts"
                                 data-placement="left">
-                                <i class="tio-add nav-icon"></i>
+                                <i class="tio-publish nav-icon"></i>
                                 <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Supplier</span>
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Outgoing RMA</span>
                             </a>
                         </li>
 
@@ -414,7 +423,7 @@
                         </li>
 
 
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <small class="nav-subtitle" title="Layouts">RMA Section</small>
                             <small class="tio-more-horizontal nav-subtitle-replacer"></small>
                         </li>
@@ -426,7 +435,7 @@
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">RMAs</span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item">
                             <small class="nav-subtitle" title="Layouts">Other Settings</small>

@@ -24,7 +24,7 @@
             <h3>Add new supplier.</h3>
             <hr>
             <!-- Form Group -->
-            <form action="{{ route('supplier.store') }}" method="POST">
+            <form action="{{ route('supplier.index') }}" method="POST">
                 @csrf
                 <div class="row form-group">
                     <label for="emailLabel" class="col-12 col-form-label input-label">First Name</label>

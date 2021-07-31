@@ -20,15 +20,36 @@ class RmaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    // public function index()
+    // {
+    //     return view('dashboard.rma.index',[
+    //         'customers' => Customer::where('users_id',session('user')[0]->id)->get(),
+    //         'rmas' => Rma::where('users_id',session('user')[0]->id)->paginate(10),
+    //         'warehouses' => Warehouse::where('users_id',session('user')[0]->id)->get(),
+    //         'suppliers' => Supplier::where('users_id',session('user')[0]->id)->get(),
+    //     ]);
+    // }
+
+    public function rmaCustomer()
     {
         return view('dashboard.rma.index',[
-            'customers' => Customer::where('users_id',session('user')[0]->id)->get(),
-            'rmas' => Rma::where('users_id',session('user')[0]->id)->paginate(10),
+            'customers' => Customer::where('users_id',session('user')[0]->id)->where('type',0)->get(),
+            'rmas' => Rma::where('users_id',session('user')[0]->id)->where('type',0)->paginate(10),
             'warehouses' => Warehouse::where('users_id',session('user')[0]->id)->get(),
-            'suppliers' => Supplier::where('users_id',session('user')[0]->id)->get(),
+            'suppliers' => Customer::where('users_id',session('user')[0]->id)->where('type',1)->get(),
         ]);
     }
+
+    public function rmaSupplier()
+    {
+        return view('dashboard.rma.index',[
+            'customers' => Customer::where('users_id',session('user')[0]->id)->where('type',0)->get(),
+            'rmas' => Rma::where('users_id',session('user')[0]->id)->where('type',1)->paginate(10),
+            'warehouses' => Warehouse::where('users_id',session('user')[0]->id)->get(),
+            'suppliers' => Customer::where('users_id',session('user')[0]->id)->where('type',1)->get(),
+        ]);
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -52,6 +73,7 @@ class RmaController extends Controller
             'customer' => 'required|string',
             'warehouse' => 'required|string',
             'supplier' => 'required|string',
+            'type' => 'required|boolean',
         ]);
         // storing this request into database
         $task = new Rma();
@@ -60,6 +82,7 @@ class RmaController extends Controller
         $task->warehouse_id = $validated['warehouse'];
         $task->supplire_id = $validated['supplier'];
         $task->status = "New";
+        $task->type = $validated['type'];
         $task->save();
         $rMAID = $task->id;
         $rmadate = $task->created_at;

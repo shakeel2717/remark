@@ -43,6 +43,7 @@
                         <input type="text" name="phone" id="phone" class="form-control">
                     </div>
                 </div>
+                <input type="hidden" name="type" value="0">
                 <div class="row form-group">
                     <label for="name" class="col-12 col-form-label input-label">Address (Optional)</label>
                     <div class="col-12">
