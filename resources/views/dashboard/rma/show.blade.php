@@ -248,7 +248,7 @@ Dashboard
         <x-add-refund :rma="$rma" />
         <x-import-rma-modal />
     </div>
-    <div class="col-8">
+    <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">RMA History</h3>
