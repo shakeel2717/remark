@@ -9,6 +9,7 @@ use App\Models\Supplier;
 use App\Models\addInventory;
 use App\Models\rmaRefunds;
 use App\Models\Reason;
+use App\Models\rmahistory;
 use Illuminate\Http\Request;
 
 
@@ -60,7 +61,16 @@ class RmaController extends Controller
         $task->supplire_id = $validated['supplier'];
         $task->status = "New";
         $task->save();
+        $rMAID = $task->id;
+        $rmadate = $task->created_at;
 
+        // inserting this RMA Creation History
+        $task = new rmahistory();
+        $task->users_id = session('user')[0]->id;
+        $task->rma_id = $rMAID;
+        $task->title = "RMA Created Successfully";
+        $task->value = "RMA Created by ".session('user')[0]->fname." ".session('user')[0]->lname." on ".$rmadate."";
+        $task->save();
         return redirect()->back()->with('message', 'RMA was successfully created');
     }
 
@@ -76,11 +86,13 @@ class RmaController extends Controller
         $addInventory = addInventory::where(['users_id' => session('user')[0]->id , 'rma_id' => $rma->id])->get();
         $rmaRefunds = rmaRefunds::where(['users_id' => session('user')[0]->id , 'rma_id' => $rma->id])->get();
         $reasons = Reason::where('users_id', session('user')[0]->id)->get();
+        $rmaHistory = rmahistory::where('users_id', session('user')[0]->id)->where('rma_id', $rma->id)->get();
         return view('dashboard.rma.show',[
             'rma' => $rma,
             'addInventory' => $addInventory,
             'rmaRefunds' => $rmaRefunds,
             'reasons' => $reasons,
+            'rmaHistories' => $rmaHistory,
         ]);
     }
 

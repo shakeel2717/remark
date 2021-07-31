@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\addInventory;
+use App\Models\rmahistory;
 use Illuminate\Http\Request;
 
 class AddInventoryController extends Controller
@@ -62,6 +63,17 @@ class AddInventoryController extends Controller
         $task->issue = $validated['issue'];
         $task->sale_price = $validated['sale_price'];
         $task->creditNote = $filename;
+        $task->save();
+
+        $rMAID = $validated['rma_id'];
+        $rmadate = $task->created_at;
+
+        // inserting this RMA Creation History
+        $task = new rmahistory();
+        $task->users_id = session('user')[0]->id;
+        $task->rma_id = $rMAID;
+        $task->title = "Inventory Added into This RMA";
+        $task->value = "Inventory Added into This RMA Successfully by ".session('user')[0]->fname." ".session('user')[0]->lname." on ".$rmadate."";
         $task->save();
         return redirect()->back()->with('message', 'Inventory Added into This RMA Successfully');
     }

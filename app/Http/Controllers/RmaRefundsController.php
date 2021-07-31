@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\rmaRefunds;
 use App\Imports\InventoryImport;
+use App\Models\rmahistory;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -64,6 +65,18 @@ class RmaRefundsController extends Controller
         $task->method = $validated['method'];
         $task->creditNote = $filename;
         $task->save();
+
+        $rMAID = $validated['rma_id'];
+        $rmadate = $task->created_at;
+
+        // inserting this RMA Creation History
+        $task = new rmahistory();
+        $task->users_id = session('user')[0]->id;
+        $task->rma_id = $rMAID;
+        $task->title = "Refund Added into This RMA";
+        $task->value = "Refund Added into This RMA Successfully by ".session('user')[0]->fname." ".session('user')[0]->lname." on ".$rmadate."";
+        $task->save();
+
         return redirect()->back()->with('message', 'Refund Amount Added Successfully');
     }
 

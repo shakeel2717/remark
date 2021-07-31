@@ -248,6 +248,29 @@ Dashboard
         <x-add-refund :rma="$rma" />
         <x-import-rma-modal />
     </div>
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">RMA History</h3>
+                <hr>
+                @foreach($rmaHistories as $rmaHistory)
+                <!-- Step -->
+                <ul class="step">
+                    <li class="step-item">
+                        <div class="step-content-wrapper">
+                            <span class="step-icon step-icon-soft-primary">{{$loop->iteration}}</span>
+                            <div class="step-content">
+                                <h4>{{$rmaHistory->title}}</h4>
+                                <p class="step-text">{{$rmaHistory->value}}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- End Step -->
+                @endforeach
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @section('footer')
