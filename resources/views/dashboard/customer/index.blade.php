@@ -59,7 +59,7 @@ Dashboard
                                 </a>
                             </td>
                             <td>
-                                <span class="d-block h5 mb-0">{{ $customer->name }}</span>
+                                <span class="d-block h5 mb-0"><a href="{{ route('customer.show',['customer' => $customer->id]) }}">{{ $customer->name }}</a></span>
                             </td>
                             <td>
                                 <span class="d-block h5 mb-0"><?php

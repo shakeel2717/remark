@@ -26,7 +26,7 @@ class RmaController extends Controller
             'customers' => Customer::where('users_id',session('user')[0]->id)->get(),
             'rmas' => Rma::where('users_id',session('user')[0]->id)->paginate(10),
             'warehouses' => Warehouse::where('users_id',session('user')[0]->id)->get(),
-            'suppliers' => Supplier::where('users_id',session('user')[0]->id)->get()
+            'suppliers' => Supplier::where('users_id',session('user')[0]->id)->get(),
         ]);
     }
 

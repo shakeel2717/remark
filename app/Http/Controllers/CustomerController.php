@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\addInventory;
 use App\Models\Customer;
+use App\Models\Rma;
 use App\Models\rmahistory;
 use App\Models\rmaRefunds;
 use Illuminate\Http\Request;
@@ -69,11 +70,13 @@ class CustomerController extends Controller
         $rmaHistory = rmahistory::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->paginate(10);
         $rmaRefunds = rmaRefunds::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->get();
         $addInventory = addInventory::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->get();
+        $totalRma = Rma::count();
         return view('dashboard.customer.show', [
             'customer' => $customer,
             'rmaHistories' => $rmaHistory,
             'addInventory' => $addInventory,
             'rmaRefunds' => $rmaRefunds,
+            'totalRma' => $totalRma,
         ]);
     }
 

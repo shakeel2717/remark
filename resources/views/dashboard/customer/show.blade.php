@@ -16,7 +16,7 @@ Dashboard
 
                 <div class="row align-items-center gx-2">
                     <div class="col">
-                        <span class="js-counter display-4 text-dark" data-value="24">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price'),2) }}</span>
+                        <span class="js-counter display-4 text-dark" data-value="24">{{$totalRma}}</span>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ Dashboard
 
                 <div class="row align-items-center gx-2">
                     <div class="col">
-                        <span class="js-counter display-4 text-dark" data-value="24">24</span>
+                        <span class="js-counter display-4 text-dark" data-value="24">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price'),2) }}</span>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@ Dashboard
 
                 <div class="row align-items-center gx-2">
                     <div class="col">
-                        <span class="js-counter display-4 text-dark" data-value="24">24</span>
+                        <span class="js-counter display-4 text-dark" data-value="24">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($rmaRefunds->sum('amount'),2) }}</span>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@ Dashboard
 
                 <div class="row align-items-center gx-2">
                     <div class="col">
-                        <span class="js-counter display-4 text-dark" data-value="24">24</span>
+                        <span class="js-counter display-4 text-dark" data-value="24">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price') - $rmaRefunds->sum('amount'),2) }}</span>
                     </div>
                 </div>
             </div>
@@ -116,6 +116,23 @@ Dashboard
                         <i class="tio-briefcase-outlined nav-icon"></i>
                         {{$customer->address}}
                     </li>
+                    <hr>
+                    <li class="pt-2 pb-0">
+                        <small class="card-subtitle">Gross Total Refund</small>
+                    </li>
+
+                    <li>
+                        <i class="tio-money nav-icon"></i>
+                        {{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price'),2) }}
+                    </li>
+                    <li class="pt-2 pb-0">
+                        <small class="card-subtitle">Total Refund DUE</small>
+                    </li>
+
+                    <li>
+                        <i class="tio-money nav-icon"></i>
+                        {{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price') - $rmaRefunds->sum('amount'),2) }}
+                    </li>
                 </ul>
             </div>
             <!-- End Body -->
@@ -126,12 +143,6 @@ Dashboard
     <div class="col-lg-8">
         <!-- Card -->
         <div class="card mb-3 mb-lg-5">
-            <!-- Header -->
-            <div class="card-header">
-                <h5 class="card-header-title">Activity stream</h5>
-            </div>
-            <!-- End Header -->
-
             <!-- Body -->
             <div class="card-body card-body-height" style="height: 30rem;">
                 <h3 class="card-title">RMA History</h3>
