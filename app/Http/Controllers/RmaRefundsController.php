@@ -46,9 +46,13 @@ class RmaRefundsController extends Controller
             'creditNote' => 'file|mimes:pdf',
         ]);
 
-        $file = $validated['creditNote'];
-        $filename = time() . rand(0000, 9999) . '.' . $file->getClientOriginalExtension();
-        $validated['creditNote']->move('creditNote', $filename);
+        if ($request->hasFile('creditNote')){
+            $file = $validated['creditNote'];
+            $filename = time() . rand(0000, 9999) . '.' . $file->getClientOriginalExtension();
+            $validated['creditNote']->move('creditNote', $filename);
+        } else {
+            $filename = Null;
+        }
 
         // inserting new Customer
         $task = new rmaRefunds();
