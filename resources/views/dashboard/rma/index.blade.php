@@ -25,7 +25,7 @@ Dashboard
                                     "animationOut": "fadeOutRight",
                                     "hasOverlay": true,
                                     "smartPositionOff": true
-                                }'>
+                                }' id="addRMAAction">
                                 <i class="tio-user-add mr-1"></i> Add RMAs
                             </a>
                             <x-rma :warehouses="$warehouses" :customers="$customers" :suppliers="$suppliers" />
@@ -37,12 +37,13 @@ Dashboard
 
             <!-- Table -->
             <div class="table-responsive ">
-                <table id="" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+                <table id=""
+                    class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
                     <thead class="thead-light">
                         <tr>
                             <th>#</th>
                             <th>Date</th>
-                            <th>Customer</th>
+                            <th>Customer / Supplier</th>
                             <th>Total Refund</th>
                             <th>Refunded</th>
                             <th>Refund Due</th>
@@ -56,12 +57,16 @@ Dashboard
                             <td>
                                 <a class="media align-items-center" href="">
                                     <div class="media-body">
-                                        <span class="d-block h5 text-hover-primary mb-0"> <a href="{{ route('rma.show',['rma' => $rma->id]) }}">RMA #{{ $loop->iteration }}</a> </span>
+                                        <span class="d-block h5 text-hover-primary mb-0"> <a
+                                                href="{{ route('rma.show',['rma' => $rma->id]) }}">RMA #{{
+                                                $loop->iteration }}</a> </span>
                                     </div>
                                 </a>
                             </td>
                             <td>
-                                <span class="d-block h5 mb-0">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($rma->created_at))->diffForHumans() }}</span>
+                                <span class="d-block h5 mb-0">{{
+                                    \Carbon\Carbon::createFromTimeStamp(strtotime($rma->created_at))->diffForHumans()
+                                    }}</span>
                             </td>
                             <td>
                                 <span class="d-block h5 mb-0">@php
@@ -72,20 +77,25 @@ Dashboard
                             </td>
                             <td>
                                 <span class="d-block h5 mb-0">@php
-                                    $addInventory = DB::table('add_inventories')->where(['users_id' => session('user')[0]->id , 'rma_id' => $rma->id])->get();
+                                    $addInventory = DB::table('add_inventories')->where(['users_id' =>
+                                    session('user')[0]->id , 'rma_id' => $rma->id])->get();
                                     @endphp
-                                    {{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price'),2) }}
+                                    {{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price'),2)
+                                    }}
                                 </span>
                             </td>
                             <td>
                                 <span class="d-block h5 mb-0">@php
-                                    $rmaRefunds = DB::table('rma_refunds')->where(['users_id' => session('user')[0]->id , 'rma_id' => $rma->id])->get();
+                                    $rmaRefunds = DB::table('rma_refunds')->where(['users_id' => session('user')[0]->id
+                                    , 'rma_id' => $rma->id])->get();
                                     @endphp
                                     {{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($rmaRefunds->sum('amount'),2) }}
                                 </span>
                             </td>
                             <td>
-                                <span class="d-block h5 mb-0">{{ env('APP_CURRENCY_SYMBOL') }}{{ number_format($addInventory->sum('sale_price') - $rmaRefunds->sum('amount'),2) }}</span>
+                                <span class="d-block h5 mb-0">{{ env('APP_CURRENCY_SYMBOL') }}{{
+                                    number_format($addInventory->sum('sale_price') - $rmaRefunds->sum('amount'),2)
+                                    }}</span>
                             </td>
                             <td>
                                 <span class="d-block h5 mb-0">{{ $rma->status }}</span>
@@ -112,4 +122,24 @@ Dashboard
         <!-- End Card -->
     </div>
 </div>
+@endsection
+@section('footer')
+<script>
+    $(document).ready(function () {
+        $("#addRMAAction").click(function () {
+            $("#supplierSection").hide();
+            $("#customerSection").hide();
+        });
+        $("#selectionmanger").change(function () {
+            var selectionmanger = $("#selectionmanger").val();
+            if (selectionmanger == 0) {
+                $("#supplierSection").hide();
+                $("#customerSection").show();
+            } else if (selectionmanger == 1) {
+                $("#customerSection").hide();
+                $("#supplierSection").show();
+            }
+        });
+    });
+</script>
 @endsection

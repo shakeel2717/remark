@@ -27,6 +27,18 @@
             <form action="{{ route('rma.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
+                    <label for="supplier" class="col-12 col-form-label input-label">Customer / Suppler </label>
+                    <div class="col-12">
+                        <!-- Select2 -->
+                        <select class="js-select2-custom custom-select" name="type" size="1" style="opacity: 0;" id="selectionmanger">
+                                <option>Choose RMA For</option>
+                                <option value="0">RMA Customer</option>
+                                <option value="1">RMA Supplier</option>
+                        </select>
+                        <!-- End Select2 -->
+                    </div>
+                </div>
+                <div class="row form-group" id="customerSection">
                     <label for="customer" class="col-12 col-form-label input-label">Select Customer <a
                             class="js-hs-unfold-invoker" href="javascript:;" data-hs-unfold-options='{
                         "target": "#customerSidebar",
@@ -68,7 +80,7 @@
                         <!-- End Select2 -->
                     </div>
                 </div>
-                <div class="row form-group">
+                <div class="row form-group" id="supplierSection">
                     <label for="supplier" class="col-12 col-form-label input-label">Supplier <a
                         class="js-hs-unfold-invoker" href="javascript:;" data-hs-unfold-options='{
                     "target": "#supplierSidebar",
@@ -90,17 +102,6 @@
                     </div>
                 </div>
 
-                <div class="row form-group">
-                    <label for="supplier" class="col-12 col-form-label input-label">Customer / Vendor </label>
-                    <div class="col-12">
-                        <!-- Select2 -->
-                        <select class="js-select2-custom custom-select" name="type" size="1" style="opacity: 0;">
-                                <option value="0">RMA Customer</option>
-                                <option value="1">RMA Supplier</option>
-                        </select>
-                        <!-- End Select2 -->
-                    </div>
-                </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Save</button>
                 </div>
