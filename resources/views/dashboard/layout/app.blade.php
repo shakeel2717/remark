@@ -6,19 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Asan Webs Development">
     <meta name="description" content="{{ env('APP_DESC') }}">
-    <title>@yield('title') - {{ env('APP_NAME') }} {{ env('APP_SHORT_DESC') }}</title>
+    <title>@yield('title') - {{ env('APP_NAME') }} {{ env('APP_SHORT_DESC') }}
+    </title>
     <link rel="shortcut icon" href="/favi.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/vendor/icon-set/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/select2/dist/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/flatpickr/dist/flatpickr.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/vendor/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/vendor/flatpickr/dist/flatpickr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/chart.js/dist/Chart.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/vendor/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
 </head>
 
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
-    <script src="{{ asset('assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
+    <script
+        src="{{ asset('assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js') }}">
+    </script>
     <div id="searchDropdown" class="hs-unfold-content dropdown-unfold search-fullwidth d-md-none">
         <form class="input-group input-group-merge input-group-borderless">
             <div class="input-group-prepend">
@@ -51,9 +57,10 @@
             <div class="navbar-brand-wrapper">
                 <!-- Logo -->
                 <a class="navbar-brand" href="{{ route('dashboard') }}" aria-label="Front">
-                    <img class="navbar-brand-logo" src="{{ asset('assets/svg/logos/logo.svg') }}" alt="Logo">
-                    <img class="navbar-brand-logo-mini" src="{{ asset('assets/svg/logos/logo-short.svg') }}"
-                        alt="Logo">
+                    <img class="navbar-brand-logo"
+                        src="{{ asset('assets/svg/logos/logo.svg') }}" alt="Logo">
+                    <img class="navbar-brand-logo-mini"
+                        src="{{ asset('assets/svg/logos/logo-short.svg') }}" alt="Logo">
                 </a>
                 <!-- End Logo -->
             </div>
@@ -223,7 +230,8 @@
                                                 </span>
                                                 <div class="media-body text-truncate">
                                                     <span class="h5 mb-0">Add new Supplier</span>
-                                                    <span class="d-block font-size-sm text-body">Click to Add new Supplier</span>
+                                                    <span class="d-block font-size-sm text-body">Click to Add new
+                                                        Supplier</span>
                                                 </div>
                                             </div>
                                         </a>
@@ -301,9 +309,10 @@
             <div class="navbar-vertical-footer-offset">
                 <div class="navbar-brand-wrapper justify-content-between">
                     <a class="navbar-brand" href="{{ route('dashboard') }}" aria-label="Front">
-                        <img class="navbar-brand-logo" src="{{ asset('assets/svg/logos/logo.svg') }}" alt="Logo">
-                        <img class="navbar-brand-logo-mini" src="{{ asset('assets/svg/logos/logo-short.svg') }}"
-                            alt="Logo">
+                        <img class="navbar-brand-logo"
+                            src="{{ asset('assets/svg/logos/logo.svg') }}" alt="Logo">
+                        <img class="navbar-brand-logo-mini"
+                            src="{{ asset('assets/svg/logos/logo-short.svg') }}" alt="Logo">
                     </a>
                     <button type="button"
                         class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-toggle btn btn-icon btn-xs btn-ghost-dark">
@@ -319,8 +328,8 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('dashboard') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('dashboard') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-dashboard nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboard</span>
@@ -335,19 +344,21 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('sale_orders.create') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('sale_orders.create') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-dollar nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Sale Order</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Sale
+                                    Order</span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('sale_orders.index') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('sale_orders.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-document nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Sale Order</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Sale
+                                    Order</span>
                             </a>
                         </li>
 
@@ -358,20 +369,22 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('customer.index') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('customer.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-user nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Customers</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
+                                    Customers</span>
                             </a>
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('rma.customer') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('rma.customer') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-publish nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Incoming RMA</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Incoming
+                                    RMA</span>
                             </a>
                         </li>
 
@@ -382,19 +395,21 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('supplier.index') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('supplier.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-neighborhood nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Suppliers</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
+                                    Suppliers</span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('rma.supplier') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('rma.supplier') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-publish nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Outgoing RMA</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Outgoing
+                                    RMA</span>
                             </a>
                         </li>
 
@@ -405,20 +420,22 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('warehouse.index') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('warehouse.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-home nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Warehouses</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
+                                    Warehouses</span>
                             </a>
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('warehouse.create') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('warehouse.create') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-home nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Warehouses</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add
+                                    Warehouses</span>
                             </a>
                         </li>
 
@@ -443,15 +460,16 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('reasons.index') }}" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link "
+                                href="{{ route('reasons.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-settings nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Reasons Setting</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Reasons
+                                    Setting</span>
                             </a>
                         </li>
 
-                        
+
                         <!-- Dashboards -->
                         <li class="nav-item">
                             <small class="nav-subtitle" title="Layouts">My Account</small>
@@ -459,16 +477,16 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('profile') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('profile') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-user nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">My
                                     Profile</span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('profile') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('profile') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-lock nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Change
                                     Password</span>
@@ -488,19 +506,21 @@
                             <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;"
                                 title="Dashboards">
                                 <i class="tio-support nav-icon"></i>
-                                <span
-                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Service Client</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Service
+                                    Client</span>
                             </a>
 
                             <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="{{ route('support.create') }}" title="Default">
+                                    <a class="nav-link " href="{{ route('support.create') }}"
+                                        title="Default">
                                         <span class="tio-circle nav-indicator-icon"></span>
                                         <span class="text-truncate">In Progress</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="{{ route('support.index') }}" title="Alternative">
+                                    <a class="nav-link " href="{{ route('support.index') }}"
+                                        title="Alternative">
                                         <span class="tio-circle nav-indicator-icon"></span>
                                         <span class="text-truncate">Completed</span>
                                     </a>
@@ -536,9 +556,18 @@
                     </div>
 
                     <div class="col-sm-auto">
-                        <a class="btn btn-primary" href="{{ route('rma.index') }}">
-                            <i class="tio-add mr-1"></i> Add NEW RMA
-                        </a>
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Add New RMA
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ route('rma.customer') }}">RMA for Supplier</a>
+                                <a class="dropdown-item" href="{{ route('rma.supplier') }}">RMA for Customer</a>
+                            </div>
+                        </div>
+                        <!-- End Dropdown -->
                     </div>
                 </div>
             </div>
@@ -559,35 +588,46 @@
         </div>
     </main>
     <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}">
+    </script>
+    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}">
+    </script>
+    <script
+        src="{{ asset('assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside.min.js') }}">
+    </script>
     <script src="{{ asset('assets/vendor/hs-unfold/dist/hs-unfold.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/hs-form-search/dist/hs-form-search.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/hs-form-search/dist/hs-form-search.min.js') }}">
+    </script>
     <script src="{{ asset('assets/vendor/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/chart.js.extensions/chartjs-extensions.js') }}"></script>
-    <script src="{{ asset('assets/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/chart.js.extensions/chartjs-extensions.js') }}">
+    </script>
+    <script
+        src="{{ asset('assets/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}">
+    </script>
     <script src="{{ asset('assets/vendor/daterangepicker/moment.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/daterangepicker/daterangepicker.js') }}"></script>
-    <script src="{{ asset('assets/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/datatables.net.extensions/select/select.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/media/js/jquery.dataTables.min.js') }}">
+    </script>
+    <script src="{{ asset('assets/vendor/datatables.net.extensions/select/select.min.js') }}">
+    </script>
     <script src="{{ asset('assets/vendor/flatpickr/dist/flatpickr.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/clipboard/dist/clipboard.min.js') }}"></script>
     <script src="{{ asset('assets/js/theme.min.js') }}"></script>
     <script src="{{ asset('assets/js/hs.flatpickr.js') }}"></script>
     <script>
-        $(document).on('ready', function() {
+        $(document).on('ready', function () {
             // INITIALIZATION OF FLATPICKR
             // =======================================================
-            $('.js-flatpickr').each(function() {
+            $('.js-flatpickr').each(function () {
                 $.HSCore.components.HSFlatpickr.init($(this));
             });
         });
+
     </script>
     <script>
-        $(document).on('ready', function() {
-            $('.js-navbar-vertical-aside-toggle-invoker').click(function() {
+        $(document).on('ready', function () {
+            $('.js-navbar-vertical-aside-toggle-invoker').click(function () {
                 $('.js-navbar-vertical-aside-toggle-invoker i').tooltip('hide');
             });
             var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
@@ -595,18 +635,18 @@
                 boundary: 'window'
             })
 
-            $(".js-nav-tooltip-link").on("show.bs.tooltip", function(e) {
+            $(".js-nav-tooltip-link").on("show.bs.tooltip", function (e) {
                 if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
                     return false;
                 }
             });
-            $('.js-hs-unfold-invoker').each(function() {
+            $('.js-hs-unfold-invoker').each(function () {
                 var unfold = new HSUnfold($(this)).init();
             });
-            $('.js-form-search').each(function() {
+            $('.js-form-search').each(function () {
                 new HSFormSearch($(this)).init()
             });
-            $('.js-select2-custom').each(function() {
+            $('.js-select2-custom').each(function () {
                 var select2 = $.HSCore.components.HSSelect2.init($(this));
             });
             Chart.plugins.unregister(ChartDataLabels);
@@ -619,6 +659,7 @@
                     'MMM D') + ' - ' + end.format('MMM D, YYYY'));
             }
         });
+
     </script>
     @yield('footer')
 </body>
