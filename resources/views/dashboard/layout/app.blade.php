@@ -563,8 +563,8 @@
                                 Add New RMA
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{ route('rma.customer') }}">RMA for Supplier</a>
-                                <a class="dropdown-item" href="{{ route('rma.supplier') }}">RMA for Customer</a>
+                                <a class="dropdown-item" href="{{ route('rma.supplier') }}">RMA for Supplier</a>
+                                <a class="dropdown-item" href="{{ route('rma.customer') }}">RMA for Customer</a>
                             </div>
                         </div>
                         <!-- End Dropdown -->
