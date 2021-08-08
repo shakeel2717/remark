@@ -44,8 +44,7 @@
 
             <!-- Footer -->
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Start
-                    Importing</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Close Modal</button>
             </div>
             <!-- End Footer -->
         </div>
