@@ -157,4 +157,17 @@ class RmaController extends Controller
     {
         //
     }
+
+    public function rmaStatusChange(Request $request)
+    {
+        // updating the Status of Current RMA
+        $validated = $request->validate([
+            'rmaId' => 'required|integer',
+            'status' => 'required|alpha',
+        ]);
+        $task = Rma::find($validated['rmaId']);
+        $task->status = $validated['status'];
+        $task->save();
+        return redirect()->back()->with('message', 'Task Completed Successfully');
+    }
 }

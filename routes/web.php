@@ -63,6 +63,8 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
 
     Route::resource('warehouse', WarehouseController::class);
     Route::resource('rma', RmaController::class);
+    Route::post('/rmaStatusChange', [RmaController::class, 'rmaStatusChange'])->name('rmaStatusChange');
+    
     Route::get('/rma-customer', [RmaController::class, 'rmaCustomer'])->name('rma.customer');
     Route::get('/rma-supplier', [RmaController::class, 'rmaSupplier'])->name('rma.supplier');
     Route::resource('add_inventory', AddInventoryController::class);
