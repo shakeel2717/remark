@@ -84,7 +84,6 @@ class RmaController extends Controller
             $task->customer_id = $validated['supplier'];
         }
         $task->warehouse_id = $validated['warehouse'];
-        $task->supplire_id = $validated['supplier'];
         $task->status = "New";
         $task->type = $validated['type'];
         $task->save();
