@@ -81,7 +81,7 @@ class CustomerController extends Controller
         $rmaHistory = rmahistory::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->paginate(10);
         $rmaRefunds = rmaRefunds::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->get();
         $addInventory = addInventory::where('users_id', session('user')[0]->id)->where('customers_id', $customer->id)->get();
-        $totalRma = Rma::count();
+        $totalRma = Rma::where(['users_id'=>session('user')[0]->id, 'customer_id' => $customer->id])->paginate(5);
         return view('dashboard.customer.show', [
             'customer' => $customer,
             'rmaHistories' => $rmaHistory,
