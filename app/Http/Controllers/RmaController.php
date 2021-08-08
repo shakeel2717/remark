@@ -70,9 +70,9 @@ class RmaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'customer' => 'required|string',
+            'customer' => 'required_with:supplier|integer',
             'warehouse' => 'required|string',
-            'supplier' => 'required|string',
+            'supplier' => 'required_with:customer|integer',
             'type' => 'required|boolean',
         ]);
         // storing this request into database
