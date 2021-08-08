@@ -43,7 +43,7 @@ class RmaController extends Controller
     public function rmaSupplier()
     {
         return view('dashboard.rma.index', [
-            'customers' => Customer::where('users_id', session('user')[0]->id)->where('type', 0)->get(),
+            'customers' => Customer::where('users_id', session('user')[0]->id)->where('type', 1)->get(),
             'rmas' => Rma::where('users_id', session('user')[0]->id)->where('type', 1)->paginate(10),
             'warehouses' => Warehouse::where('users_id', session('user')[0]->id)->get(),
             'suppliers' => Customer::where('users_id', session('user')[0]->id)->where('type', 1)->get(),

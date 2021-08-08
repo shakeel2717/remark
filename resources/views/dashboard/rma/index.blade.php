@@ -72,7 +72,7 @@ Dashboard
                                 <span class="d-block h5 mb-0">@php
                                     $query = DB::table('customers')->find($rma->customer_id);
                                     @endphp
-                                    <a href="{{ route('customer.show',['customer' => 1]) }}">{{$query->name}}</a>
+                                    <a href="{{ route('customer.show',['customer' => $rma->customer_id]) }}">{{$query->name}}</a>
                                 </span>
                             </td>
                             <td>
