@@ -75,9 +75,15 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <label for="name" class="col-12 col-form-label input-label">Address (Optional)</label>
+                    <label for="name" class="col-12 col-form-label input-label">Address *</label>
                     <div class="col-12">
                         <input type="text" name="address" id="address" class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="name" class="col-12 col-form-label input-label">Country *</label>
+                    <div class="col-12">
+                        <input type="text" name="country" id="country" class="form-control">
                     </div>
                 </div>
                 <div class="row form-group">

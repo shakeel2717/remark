@@ -39,7 +39,7 @@ class WarehouseController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|min:3|max:30',
-            'location' => 'required|string|min:3|max:30',
+            'location' => 'required|string|min:3',
         ]);
 
         // storing into databsae

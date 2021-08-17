@@ -56,8 +56,9 @@ class CustomerController extends Controller
             'name' => 'required|string',
             'email' => 'nullable|email|string',
             'phone' => 'nullable|string',
-            'address' => 'nullable|string',
+            'address' => 'required|string',
             'type' => 'required|boolean',
+            'country' => 'required|string',
         ]);
         $data = implode(", ", $emails);
 
@@ -69,6 +70,7 @@ class CustomerController extends Controller
         $task->emails = $data;
         $task->phone = $validated['phone'];
         $task->address = $validated['address'];
+        $task->country = $validated['country'];
         $task->type = $validated['type'];
         $task->save();
         return redirect()->back()->with('message', 'Task successfully created');

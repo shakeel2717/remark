@@ -130,6 +130,14 @@
                             <i class="tio-briefcase-outlined nav-icon"></i>
                             {{ $customer->address }}
                         </li>
+                        <li class="pt-2 pb-0">
+                            <small class="card-subtitle">Country</small>
+                        </li>
+
+                        <li>
+                            <i class="tio-briefcase-outlined nav-icon"></i>
+                            {{ $customer->country }}
+                        </li>
                         <hr>
                         <li class="pt-2 pb-0">
                             <small class="card-subtitle">Gross Total Refund</small>
