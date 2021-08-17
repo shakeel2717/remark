@@ -50,6 +50,8 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        $emails = $request->only(['email_0','email_1','email_2','email_3','email_4','email_5','email_6','email_7','email_8','email_9','email_10',
+                                ]);
         $validated = $request->validate([
             'name' => 'required|string',
             'email' => 'nullable|email|string',
@@ -57,12 +59,14 @@ class CustomerController extends Controller
             'address' => 'nullable|string',
             'type' => 'required|boolean',
         ]);
+        $data = implode(", ", $emails);
 
         // inserting new Customer
         $task = new Customer();
         $task->users_id = session('user')[0]->id;
         $task->name = $validated['name'];
         $task->email = $validated['email'];
+        $task->emails = $data;
         $task->phone = $validated['phone'];
         $task->address = $validated['address'];
         $task->type = $validated['type'];

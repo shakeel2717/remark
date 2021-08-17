@@ -5,7 +5,8 @@
             <h4 class="card-header-title">Add New Customer / Supplier</h4>
 
             <!-- Toggle Button -->
-            <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark ml-2" href="javascript:;" data-hs-unfold-options='{
+            <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark ml-2" href="javascript:;"
+                data-hs-unfold-options='{
                     "target": "#customerSidebar",
                     "type": "css-animation",
                     "animationIn": "fadeInRight",
@@ -31,12 +32,42 @@
                         <input type="text" name="name" id="name" class="form-control">
                     </div>
                 </div>
-                <div class="row form-group">
-                    <label for="name" class="col-12 col-form-label input-label">Email (Optional)</label>
+                <!-- Form Group -->
+                <div class="js-add-field row form-group" data-hs-add-field-options='{
+                    "template": "#addAddressFieldEgTemplate",
+                    "container": "#addAddressFieldEgContainer",
+                    "defaultCreated": 0
+                    }'>
+                    <label for="addressLineLabelEg1" class="col-12 col-form-label input-label">Email
+                        (Optional)</span></label>
+
                     <div class="col-12">
-                        <input type="email" name="email" id="email" class="form-control">
+                        <input type="text" class="form-control" name="email" id="addressLineLabelEg1"
+                            placeholder="Email Address" aria-label="Email Address">
+
+                        <!-- Container For Input Field -->
+                        <div id="addAddressFieldEgContainer"></div>
+
+                        <a href="javascript:;"
+                            class="js-create-field form-link btn btn-sm btn-no-focus btn-ghost-primary">
+                            <i class="tio-add"></i> Add Email Address
+                        </a>
                     </div>
                 </div>
+                <!-- End Form Group -->
+
+                <!-- Add Phone Input Field -->
+                <div id="addAddressFieldEgTemplate" style="display: none;">
+                    <div class="input-group-add-field">
+                        <input type="text" class="form-control" data-name="email" placeholder="Email Address"
+                            aria-label="Email Address">
+
+                        <a class="js-delete-field input-group-add-field-delete" href="javascript:;">
+                            <i class="tio-clear"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- End Add Phone Input Field -->
                 <div class="row form-group">
                     <label for="name" class="col-12 col-form-label input-label">Phone (Optional)</label>
                     <div class="col-12">
@@ -54,8 +85,8 @@
                     <div class="col-12">
                         <!-- Select2 -->
                         <select class="js-select2-custom custom-select" name="type" size="1" style="opacity: 0;">
-                                <option value="0">Customer</option>
-                                <option value="1">Supplier</option>
+                            <option value="0">Customer</option>
+                            <option value="1">Supplier</option>
                         </select>
                         <!-- End Select2 -->
                     </div>

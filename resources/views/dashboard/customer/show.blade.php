@@ -74,12 +74,12 @@
         <div class="col-lg-4">
             <!-- Card -->
             <div class="js-sticky-block card mb-3 mb-lg-5" data-hs-sticky-block-options="{
-                                                   &quot;parentSelector&quot;: &quot;#accountSidebarNav&quot;,
-                                                   &quot;breakpoint&quot;: &quot;lg&quot;,
-                                                   &quot;startPoint&quot;: &quot;#accountSidebarNav&quot;,
-                                                   &quot;endPoint&quot;: &quot;#stickyBlockEndPoint&quot;,
-                                                   &quot;stickyOffsetTop&quot;: 20
-                                                 }" style="">
+                                                       &quot;parentSelector&quot;: &quot;#accountSidebarNav&quot;,
+                                                       &quot;breakpoint&quot;: &quot;lg&quot;,
+                                                       &quot;startPoint&quot;: &quot;#accountSidebarNav&quot;,
+                                                       &quot;endPoint&quot;: &quot;#stickyBlockEndPoint&quot;,
+                                                       &quot;stickyOffsetTop&quot;: 20
+                                                     }" style="">
                 <!-- Header -->
                 <div class="card-header">
                     <h5 class="card-header-title">Profile</h5>
@@ -106,6 +106,17 @@
                             <i class="tio-online nav-icon"></i>
                             {{ $customer->email }}
                         </li>
+                        @php
+                        $emails = explode(",",$customer->emails);
+                        @endphp
+                        @forelse ($emails as $email)
+                            <li>
+                                <i class="tio-online nav-icon"></i>
+                                {{ $email }}
+                            </li>
+                        @empty
+
+                        @endforelse
                         <li>
                             <i class="tio-android-phone-vs nav-icon"></i>
                             {{ $customer->phone }}
@@ -276,7 +287,7 @@
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($totalRma->where('status','New') as $rma)
+                                    @foreach ($totalRma->where('status', 'New') as $rma)
                                         <tr>
                                             <td>
                                                 <a class="media align-items-center" href="">
@@ -351,7 +362,7 @@
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($totalRma->where('status','Recieved') as $rma)
+                                    @foreach ($totalRma->where('status', 'Recieved') as $rma)
                                         <tr>
                                             <td>
                                                 <a class="media align-items-center" href="">
@@ -426,7 +437,7 @@
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($totalRma->where('status','Resolved') as $rma)
+                                    @foreach ($totalRma->where('status', 'Resolved') as $rma)
                                         <tr>
                                             <td>
                                                 <a class="media align-items-center" href="">

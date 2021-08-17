@@ -3,11 +3,7 @@
     Dashboard
 @endsection
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <x-email-alert />
-        </div>
-    </div>
+    <x-email-alert />
     <div class="row ">
         <div class="col-12">
             <!-- Card -->
@@ -19,13 +15,13 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="card-header-title">All Record List</h5>
                                 <a class="btn btn-primary js-hs-unfold-invoker" href="javascript:;" data-hs-unfold-options='{
-                                        "target": "#customerSidebar",
-                                        "type": "css-animation",
-                                        "animationIn": "fadeInRight",
-                                        "animationOut": "fadeOutRight",
-                                        "hasOverlay": true,
-                                        "smartPositionOff": true
-                                    }'>
+                                            "target": "#customerSidebar",
+                                            "type": "css-animation",
+                                            "animationIn": "fadeInRight",
+                                            "animationOut": "fadeOutRight",
+                                            "hasOverlay": true,
+                                            "smartPositionOff": true
+                                        }'>
                                     <i class="tio-user-add mr-1"></i> Add new
                                 </a>
                                 <x-customer />
@@ -162,4 +158,14 @@
             <!-- End Card -->
         </div>
     </div>
+@endsection
+
+@section('footer')
+    <script>
+        $(document).on('ready', function() {
+            $('.js-add-field').each(function() {
+                new HSAddField($(this)).init();
+            });
+        });
+    </script>
 @endsection

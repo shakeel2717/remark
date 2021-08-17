@@ -18,6 +18,7 @@ class CreateCustomersTable extends Migration
             $table->integer('users_id');
             $table->string('name');
             $table->string('email')->nullable();
+            $table->text('emails')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->boolean('type');
