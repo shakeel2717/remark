@@ -9,7 +9,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\RmaController;
-use App\Http\Controllers\saleOrdersController;
+use App\Http\Controllers\SaleOrdersController;
 use App\Http\Controllers\AddInventoryController;
 use App\Http\Controllers\RmaRefundsController;
 use App\Http\Controllers\ReasonController;
