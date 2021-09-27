@@ -14,7 +14,7 @@
             <!-- Body -->
             <div class="modal-body p-sm-5">
                 <div class="text-center mb-5">
-                    <h4 class="h1">Import Excel Inventory in RMA</h4>
+                    <h4 class="h1">Change Status of Current RMA</h4>
                 </div>
                 <form action="{{ route('rmaStatusChange') }}" method="POST">
                     @csrf
@@ -44,7 +44,7 @@
 
             <!-- Footer -->
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Close Modal</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Close</button>
             </div>
             <!-- End Footer -->
         </div>

@@ -7,6 +7,7 @@ use App\Models\Supplier;
 use App\Models\users;
 use App\Models\Warehouse;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class createUser extends Command
 {
@@ -15,7 +16,7 @@ class createUser extends Command
      *
      * @var string
      */
-    protected $signature = 'make:user';
+    protected $signature = 'make:clean';
 
     /**
      * The console command description.
@@ -75,6 +76,12 @@ class createUser extends Command
             'name' => 'Main Warehouse',
             'location' => 'Faisalbad',
         ]);
+
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        Artisan::call('view:clear');
+        Artisan::call('route:clear');
+        
         return $this->info('Test Account Setup Successfully');
     }
 }
