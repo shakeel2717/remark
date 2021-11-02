@@ -32,8 +32,8 @@
                         <!-- Select2 -->
                         <select class="js-select2-custom custom-select" name="type" size="1" style="opacity: 0;" id="selectionmanger">
                                 <option>Choose RMA For</option>
-                                <option value="0">RMA Customer</option>
-                                <option value="1">RMA Supplier</option>
+                                <option {{ session('rmaCustomer') }} value="0">RMA Customer</option>
+                                <option value="1" {{ session('rmaSupplier') }}>RMA Supplier</option>
                         </select>
                         <!-- End Select2 -->
                     </div>

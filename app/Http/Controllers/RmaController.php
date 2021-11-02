@@ -30,8 +30,10 @@ class RmaController extends Controller
     //     ]);
     // }
 
-    public function rmaCustomer()
+    public function rmaCustomer(Request $request)
     {
+        session(['rmaCustomer' => "selected='selected'"]);
+        $request->session()->forget('rmaSupplier');
         return view('dashboard.rma.index', [
             'customers' => Customer::where('users_id', session('user')[0]->id)->where('type', 0)->get(),
             'rmas' => Rma::where('users_id', session('user')[0]->id)->where('type', 0)->paginate(10),
@@ -40,8 +42,10 @@ class RmaController extends Controller
         ]);
     }
 
-    public function rmaSupplier()
+    public function rmaSupplier(Request $request)
     {
+        session(['rmaSupplier' => "selected='selected'"]);
+        $request->session()->forget('rmaCustomer');
         return view('dashboard.rma.index', [
             'customers' => Customer::where('users_id', session('user')[0]->id)->where('type', 1)->get(),
             'rmas' => Rma::where('users_id', session('user')[0]->id)->where('type', 1)->paginate(10),
